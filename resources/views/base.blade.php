@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../node_modules/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="build/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script> -->
@@ -27,9 +28,48 @@
             margin-top: 5rem !important;
 
         }
+        /* .text-sm .absolute {
+            margin-top: 1rem;
+        } */
         /* .div>h3{
             font-size: larger !important;
         } */
+        .flex .gap-2{
+            display: flex !important;
+            align-content: center !important;
+        }
+        .gf{
+            padding-top: 5px;
+            width: 1.5rem;
+            height: 1.5rem;
+            font-size: 22px;
+        }
+    </style>
+        <style>
+
+        .language-menu {
+            position: relative;
+            display: inline-block;
+        }
+        .menu-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            z-index: 1;
+            left: 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .menu-content a {
+            display: block;
+            padding: 5px;
+            text-decoration: none;
+            color: black;
+        }
+        .menu-content a:hover {
+            background-color: #f0f0f0;
+        }
     </style>
     <!-- <title>وبلاگ</title> -->
 </head>
@@ -121,11 +161,14 @@
                               </div>
                             </form>
                           </dialog>
-                        <a class="p-2.5 flex items-center cursor-pointer" onclick="my_modal_3.showModal()">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                              </svg>
-                        </a>
+                          <div class="language-menu">
+                            <i class="fas fa-globe gf" style="font-size: 24px; cursor: pointer;" onclick="toggleMenu()"></i> <!-- آیکون گلوب -->
+                            <div class="menu-content" id="languageMenu">
+                                <a href="#">فارسی</a>
+                                <a href="#">English</a>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
@@ -187,7 +230,22 @@
         </div>
     </footer>
     @include('sweetalert::alert')
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("languageMenu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
 
+        // بستن منو وقتی کاربر روی جاهای دیگر کلیک می‌کند
+        window.onclick = function(event) {
+            if (!event.target.matches('.fas.fa-globe')) {
+                const menu = document.getElementById("languageMenu");
+                if (menu.style.display === "block") {
+                    menu.style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 
 <!-- Mirrored from mahdghanon.ir/public/"{{route('blogs')}} by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Aug 2023 06:34:51 GMT -->

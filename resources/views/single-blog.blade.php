@@ -50,27 +50,9 @@
                             <h3 class="font-YekanBakh-Bold text-slate-800 text-base">دسته بندی</h3>
                         </div>
                         <ul class="menu">
-                            <li><a>دسته بندی اول</a></li>
-                            <li>
-                              <details open>
-                                <summary>دسته بندی دوم</summary>
-                                <ul>
-                                  <li><a>زیر منوی 1 دسته بندی دوم</a></li>
-                                  <li><a>زیر منوی 2 دسته بندی دوم</a></li>
-                                  <li>
-                                    <details open>
-                                      <summary>دسته بندی سوم</summary>
-                                      <ul>
-                                        <li><a>زیر منوی 1 دسته بندی سوم</a></li>
-                                        <li><a>زیر منوی 2 دسته بندی سوم</a></li>
-                                      </ul>
-                                    </details>
-                                  </li>
-                                </ul>
-                              </details>
-                            </li>
-                            <li><a>دسته بندی چهارم</a></li>
-                          </ul>
+                            <!-- <li><a>دسته بندی اول</a></li> -->
+                        @include('layout/cat')
+                        </ul>
 
                     </div>
                 </div>
@@ -89,7 +71,10 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
                                       </svg>
-                                      کسب و کار
+                                      @foreach ($blog->categories()->get() as $cat )
+
+                                        {{$cat->name }}
+                                      @endforeach
                                 </span>
                             </div>
                         </div>
@@ -98,7 +83,12 @@
 
                         <div class="mt-4">
                             <h3 class="font-YekanBakh-Bold text-slate-800 text-base">نظرات</h3>
-                            <p>شما با نام یاسمن وارد شده اید!!</p>
+                            @guest
+                                <p>برای ثبت نظر ابتدا وارد شوید</p>
+                            @else
+                            <p>شما با نام {{Auth::user()->name}} وارد شده اید!!</p>
+
+                            @endif
                             <textarea class="textarea textarea-bordered w-full h-36 rounded-2xl" placeholder="نظر خود را بنویسید..."></textarea>
                             <button class="btn btn-primary rounded-2xl">ارسال پیام</button>
                         </div>

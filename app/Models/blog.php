@@ -11,4 +11,9 @@ class blog extends Model
     protected $fillable =[
         'count_view'
     ];
+
+
+    public function categories(){
+        return $this->belongsToMany(blogcategory::class,'blogcategorys_blog');
+    }
 }

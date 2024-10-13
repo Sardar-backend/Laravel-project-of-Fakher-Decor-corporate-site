@@ -174,78 +174,21 @@
                 </div>
                 <div class="swiper project">
                     <div class="swiper-wrapper">
-                      <div class="swiper-slide text-center group/proj cursor-pointer">
-                        <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
-                            <a href="single-project.html">
-                                <img class="relative" src="../assets/images/blog-1.jpg" alt="" srcset="">
-                                <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>
-                            </a>
+                        @foreach ($projects as $project )
+
+                        <div class="swiper-slide text-center group/proj cursor-pointer">
+                          <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
+                              <a href="single-project.html">
+                                  <img class="relative" src="../assets/images/blog-1.jpg" alt="" srcset="">
+                                  <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>
+                              </a>
+                          </div>
+                          <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
+                              <h3 class="font-YekanBakh-Bold text-sm">{{$project->name}}</h3>
+                              <p class="">جهت مشاهده مطالب کلیک کنید</p>
+                          </figcaption>
                         </div>
-                        <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
-                            <h3 class="font-YekanBakh-Bold text-sm">پروژه شماره یک</h3>
-                            <p class="">جهت مشاهده مطالب کلیک کنید</p>
-                        </figcaption>
-                      </div>
-                      <div class="swiper-slide text-center group/proj cursor-pointer">
-                        <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
-                            <a href="single-project.html">
-                                <img class="relative" src="../assets/images/blog-2.jpg" alt="" srcset="">
-                                <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>
-                            </a>
-                        </div>
-                        <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
-                            <h3 class="font-YekanBakh-Bold text-sm">پروژه شماره دو</h3>
-                            <p class="">جهت مشاهده مطالب کلیک کنید</p>
-                        </figcaption>
-                      </div>
-                      <div class="swiper-slide text-center group/proj cursor-pointer">
-                        <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
-                            <a href="single-project.html">
-                                <img class="relative" src="../assets/images/blog-3.jpg" alt="" srcset="">
-                                <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>
-                            </a>
-                        </div>
-                        <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
-                            <h3 class="font-YekanBakh-Bold text-sm">پروژه شماره سه</h3>
-                            <p class="">جهت مشاهده مطالب کلیک کنید</p>
-                        </figcaption>
-                      </div>
-                      <div class="swiper-slide text-center group/proj cursor-pointer">
-                        <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
-                            <a href="single-project.html">
-                                <img class="relative" src="../assets/images/blog-4.jpg" alt="" srcset="">
-                                <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>
-                            </a>
-                        </div>
-                        <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
-                            <h3 class="font-YekanBakh-Bold text-sm">پروژه شماره چهار</h3>
-                            <p class="">جهت مشاهده مطالب کلیک کنید</p>
-                        </figcaption>
-                      </div>
-                      <div class="swiper-slide text-center group/proj cursor-pointer">
-                        <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
-                            <a href="single-project.html">
-                                <img class="relative" src="../assets/images/blog-5.jpg" alt="" srcset="">
-                                <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>
-                            </a>
-                        </div>
-                        <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
-                            <h3 class="font-YekanBakh-Bold text-sm">پروژه شماره پنج</h3>
-                            <p class="">جهت مشاهده مطالب کلیک کنید</p>
-                        </figcaption>
-                      </div>
-                      <div class="swiper-slide text-center group/proj cursor-pointer">
-                        <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
-                            <a href="single-project.html">
-                                <img class="relative" src="../assets/images/blog-6.jpg" alt="" srcset="">
-                                <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>
-                            </a>
-                        </div>
-                        <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
-                            <h3 class="font-YekanBakh-Bold text-sm">پروژه شماره شش</h3>
-                            <p class="">جهت مشاهده مطالب کلیک کنید</p>
-                        </figcaption>
-                      </div>
+                        @endforeach
                     </div>
                   </div>
             </div>
@@ -266,7 +209,7 @@
                     <p class="mb-4">
                         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
                     </p>
-                    <a href="about-us.html" class="bg-yellow-400 py-4 px-8 rounded-2xl">بیشتر بخوانید</a>
+                    <a href="{{route('about')}}" class="bg-yellow-400 py-4 px-8 rounded-2xl">بیشتر بخوانید</a>
                 </div>
             </div>
         </div>
@@ -357,58 +300,22 @@
                 <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                @foreach ($blogs as $blog)
+
                 <div class="bg-white rounded-2xl overflow-hidden">
                     <div class="relative">
                         <div class="flex justify-center">
-                            <a href="blog.html" class="absolute -bottom-4 bg-white p-2 rounded-lg shadow-lg">دسته بندی: کسب و کار</a>
+                            <a href="{{route('blog_single',['id'=>$blog->id])}}" class="absolute -bottom-4 bg-white p-2 rounded-lg shadow-lg">دسته بندی: {{$blog->categories()->first()->name}}</a>
                         </div>
-                        <a href="single-blog.html"><img src="../assets/images/blog-1.jpg" alt=""></a>
+                        <a href="{{route('blog_single',['id'=>$blog->id])}}"><img src="../assets/images/blog-1.jpg" alt=""></a>
                     </div>
                     <div class="p-4 leading-8 w-full">
-                        <a href="single-blog.html"><h3 class="font-YekanBakh-Bold mt-6 mb-2 text-slate-800 text-sm">جذاب ترین ایده دکوراسیون</h3></a>
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ..</p>
-                        <a href="single-blog.html" class="text-yellow-400">مشاهده بیشتر »</a>
+                        <a href="{{route('blog_single',['id'=>$blog->id])}}"><h3 class="font-YekanBakh-Bold mt-6 mb-2 text-slate-800 text-sm">{{$blog->title}}</h3></a>
+                        <p>{{substr(strip_tags($blog->content),0,211)}}...</p>
+                        <a href="{{route('blog_single',['id'=>$blog->id])}}" class="text-yellow-400">مشاهده بیشتر »</a>
                     </div>
                 </div>
-                <div class="bg-white rounded-2xl overflow-hidden">
-                    <div class="relative">
-                        <div class="flex justify-center">
-                            <a href="blog.html" class="absolute -bottom-4 bg-white p-2 rounded-lg shadow-lg">دسته بندی: مبلمان و دکور</a>
-                        </div>
-                        <a href="single-blog.html"><img src="../assets/images/blog-6.jpg" alt=""></a>
-                    </div>
-                    <div class="p-4 leading-8 w-full">
-                        <a href="single-blog.html"><h3 class="font-YekanBakh-Bold mt-6 mb-2 text-slate-800 text-sm">5 مدل مبلمان فضای بسته</h3></a>
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ..</p>
-                        <a href="single-blog.html" class="text-yellow-400">مشاهده بیشتر »</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl overflow-hidden">
-                    <div class="relative">
-                        <div class="flex justify-center">
-                            <a href="blog.html" class="absolute -bottom-4 bg-white p-2 rounded-lg shadow-lg">دسته بندی: اکسسوری زیبا</a>
-                        </div>
-                        <a href="single-blog.html"><img src="../assets/images/blog-7.jpg" alt=""></a>
-                    </div>
-                    <div class="p-4 leading-8 w-full">
-                        <a href="single-blog.html"><h3 class="font-YekanBakh-Bold mt-6 mb-2 text-slate-800 text-sm">زیبا ترین گل های آپارتمانی</h3></a>
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ..</p>
-                        <a href="single-blog.html" class="text-yellow-400">مشاهده بیشتر »</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl overflow-hidden">
-                    <div class="relative">
-                        <div class="flex justify-center">
-                            <a href="blog.html" class="absolute -bottom-4 bg-white p-2 rounded-lg shadow-lg">دسته بندی: رنگ آمیزی</a>
-                        </div>
-                        <a href="single-blog.html"><img src="../assets/images/blog-8.jpg" alt=""></a>
-                    </div>
-                    <div class="p-4 leading-8 w-full">
-                        <a href="single-blog.html"><h3 class="font-YekanBakh-Bold mt-6 mb-2 text-slate-800 text-sm">بهترین رنگ های ساختمان</h3></a>
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ..</p>
-                        <a href="single-blog.html" class="text-yellow-400">مشاهده بیشتر »</a>
-                    </div>
-                </div>
+                @endforeach
 
             </div>
         </div>
@@ -481,7 +388,7 @@
                     <h3 class="font-YekanBakh-Bold text-white mb-4 text-lg">خدمات شرکت</h3>
                     <ul>
                         <li><a href="single-project.html">جزئیات پروژه</a></li>
-                        <li><a href="blog.html">جزئیات بلاگ</a></li>
+                        <li><a href="{{route('blog_single',['id'=>$blog->id])}}">جزئیات بلاگ</a></li>
                         <li><a href="table.html">جدول</a></li>
                         <li><a href="{{route('faq')}}">سوالات متداول</a></li>
                         <li><a href="">404</a></li>

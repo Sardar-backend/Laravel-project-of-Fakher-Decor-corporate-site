@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\blog;
+use App\Models\blogcategory;
 use App\Models\contact;
 use App\Models\project;
 use Illuminate\Http\Request;
@@ -11,7 +12,10 @@ use RealRashid\SweetAlert\Facades\Alert;
 class HomeController extends Controller
 {
     public function index(){
-        return view('index');
+        $projects=project::all();
+        $blogs=blog::orderBy('count_view')->limit(4)->get();
+
+        return view('index' ,compact('projects','blogs'));
     }
     public function Services(){
         return view('services');
@@ -25,7 +29,7 @@ class HomeController extends Controller
         return view('faq');
     }
     public function blog_list(){
-        $blogs=blog::paginate(8);
+        $blogs=blog::paginate(1);
         return view('blog',compact('blogs'));
     }
     public function blog_single(int $id){
@@ -33,8 +37,10 @@ class HomeController extends Controller
         $count_view=$blog->count_view + 1;
         $blog->update(['count_view'=>$count_view]);
         $PopularBlogs=blog::orderBy('count_view')->limit(4)->get();
+        $categories = blogcategory::where('parent',0)->get();
+        //$categories = blogcategory::all();
         // dd($PopularBlogs);
-        return view( 'single-blog', compact('blog','PopularBlogs'));
+        return view( 'single-blog', compact('blog','PopularBlogs','categories'));
     }
     public function project_single(int $id){
         $project=project::findOrFail($id)->first();
