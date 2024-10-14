@@ -22,3 +22,4 @@ Route::post('/login',[HomeController::class,'login_post'])->name('login_post');
 
 Route::get('/register',[HomeController::class,'register'])->name('register');
 Route::post('/register',[HomeController::class,'register_post'])->name('register_post');
+Route::post('/craete_comment',[HomeController::class,'craete_comment'])->name('craete_comment');

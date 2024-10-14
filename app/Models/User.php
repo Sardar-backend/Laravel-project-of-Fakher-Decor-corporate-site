@@ -31,7 +31,9 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
+    public function is_superuser(){
+        return $this->is_superuser;
+    }
     /**
      * Get the attributes that should be cast.
      *

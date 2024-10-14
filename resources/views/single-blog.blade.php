@@ -1,6 +1,141 @@
 @extends('base')
 @section('content')
+<style>
 
+/* سبک عمومی کامنت */
+.comment {
+    background-color: #ffffff; /* پس‌زمینه سفید */
+    border-radius: 12px; /* گوشه‌های گرد */
+    border: 1px solid #dedede; /* حاشیه باریک */
+    padding: 20px; /* فاصله داخلی */
+    margin-bottom: 20px; /* فاصله بین کامنت‌ها */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* سایه نرم برای برجسته کردن */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* انیمیشن تغییر */
+}
+
+.comment:hover {
+    transform: translateY(-5px); /* بلند شدن کامنت هنگام hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* سایه بیشتر هنگام hover */
+}
+
+/* بخش اطلاعات فرستنده */
+.sender-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.sender-details .name {
+    font-weight: bold;
+    color: #333333; /* رنگ تیره برای نام */
+    font-size: 1.2em; /* اندازه بزرگ‌تر */
+    margin-bottom: 5px;
+}
+
+.sender-details .date {
+    font-size: 0.9em;
+    color: #888888; /* رنگ خاکستری برای تاریخ */
+}
+
+.sender-details img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* تصویر گرد */
+    object-fit: cover;
+    margin-right: 15px; /* فاصله بین تصویر و نام */
+    border: 2px solid #f0f0f0; /* حاشیه نازک دور تصویر */
+    transition: border-color 0.3s ease;
+}
+
+.sender-details img:hover {
+    border-color: #007bff; /* تغییر رنگ حاشیه تصویر هنگام hover */
+}
+
+/* سبک متن کامنت */
+.comment p {
+    font-size: 1.05em;
+    line-height: 1.6; /* فاصله بین خطوط */
+    color: #555555; /* رنگ تیره‌تر برای متن کامنت */
+    margin-top: 15px;
+}
+
+/* دکمه پاسخ */
+.reply {
+    cursor: pointer;
+    color: #007bff; /* رنگ آبی برای دکمه */
+    font-size: 0.95em;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 15px;
+    transition: color 0.3s ease;
+}
+
+.reply:hover {
+    color: #0056b3; /* تغییر رنگ دکمه هنگام hover */
+}
+
+.reply img {
+    width: 16px;
+    height: 16px;
+    margin-left: 5px; /* فاصله تصویر از متن */
+}
+
+/* کامنت‌های فرعی (پاسخ‌ها) */
+.child-comment {
+    margin-top: 25px;
+    padding-left: 40px; /* فاصله برای ایجاد تو رفتگی */
+    border-left: 3px solid #eeeeee; /* خط عمودی برای تمایز پاسخ‌ها */
+}
+
+.child-comment img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* تصویر گرد */
+    object-fit: cover;
+    margin-right: 10px;
+    border: 2px solid #f0f0f0;
+}
+
+.child-comment .name {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333333;
+}
+
+.child-comment .date {
+    font-size: 0.85em;
+    color: #999999;
+}
+
+.child-comment p {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #666666;
+}
+
+/* واکنش‌گرایی */
+@media (max-width: 768px) {
+    .sender-details img, .child-comment img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .comment, .child-comment {
+        padding: 15px;
+    }
+
+    .reply {
+        font-size: 0.9em;
+    }
+
+    .sender-details .name {
+        font-size: 1.1em;
+    }
+}
+
+
+
+</style>
 
     <div class="bg-[url('/assets/images/ber.jpg')] bg-no-repeat h-40 md:h-64 relative">
         <div class="flex justify-center">
@@ -82,15 +217,85 @@
                         <p class="mt-4">{!! nl2br(e($blog->content)) !!}</p>
 
                         <div class="mt-4">
+
+
+
+                                                                @foreach ($comments as $comment)
+                                                                <div class="comment p-3 my-2">
+                                                                    <div class="sender-details">
+                                                                        <div class="row">
+                                                                            <div class="col-3 col-sm-2 col-md-1 pl-md-0 pl-lg-2 pl-xl-3">
+                                                                                <!-- <img oncontextmenu="function d (event){ event.preventDefault()}" style="pointer-events: none;"  src="/storage/{{$comment->user->image}}" alt="image" class="rounded"> -->
+                                                                                <img oncontextmenu="function d (event){ event.preventDefault()}" style="pointer-events: none;"  src="../assets/images/user.png" alt="image" class="rounded">
+                                                                            </div>
+                                                                            <div class="col-9 col-sm-10 col-md-11 pr-0 pr-md-2 pr-xl-0 pt-0 pt-lg-1">
+                                                                                <div class="name">{{$comment->user->name}}</div>
+                                                                                <div class="date">ارسال شده در {{jdate($comment->failed_at)->ago()}}</div>
+                                                                            </div>
+                                                                            <div class="col-12">
+                                                                                <p>{{$comment->content}}</p>
+                                                                                <span onclick="let parent_id = document.querySelector('.parent_id').value={{$comment->id}};" class="reply"><img  src="assets/images/comment-reply.png" alt=""> ارسال پاسخ</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                    <script>
+                                                                        let t =document.querySelector('.rounded')
+                                                                    t.addEventListener('contextmenu', event => event.preventDefault());</script>
+                                                                    <!-- Comment Reply -->
+                                                                    @foreach ($comment->child->where('status',1) as $child )
+
+
+                                                                    <div class="row justify-content-end">
+                                                                        <div class="col-11 pt-2 pr-0">
+                                                                            <div class="comment p-3">
+                                                                                <div class="sender-details">
+                                                                                    <div class="row">
+                                                                                        <div class="col-3 col-sm-2 col-md-1 pl-md-0 pl-lg-2 pl-xl-3">
+                                                                                            <!-- <img src="/storage/{{$child->user->image}}" alt="image" class="rounded"> -->
+                                                                                            <img src="../assets/images/user.png" alt="image" class="rounded">
+                                                                                        </div>
+                                                                                        <div class="col-9 col-sm-10 col-md-11 pr-0 pr-md-2 pr-xl-0 pt-0 pt-lg-1">
+                                                                                            <div class="name">{{$child->user->name}}</div>
+                                                                                            <div class="date">ارسال شده در {{jdate($child->failed_at)->ago()}}</div>
+                                                                                        </div>
+                                                                                        <div class="col-12">
+                                                                                            <p>{{$child->content}}</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                   @endforeach
+                                                                    <!-- /Comment Reply -->
+                                                                </div>
+
+                                                                @endforeach
+
+
+
+
+
+
+
+
+
                             <h3 class="font-YekanBakh-Bold text-slate-800 text-base">نظرات</h3>
                             @guest
                                 <p>برای ثبت نظر ابتدا وارد شوید</p>
                             @else
                             <p>شما با نام {{Auth::user()->name}} وارد شده اید!!</p>
-
+                            <form action="{{route('craete_comment')}}" method="post">
+                                @csrf
+                                <input type="hidden" class="parent_id"  name="parent_id" value="0"  id="">
+                                <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                                <textarea name="content" class="textarea textarea-bordered w-full h-36 rounded-2xl" placeholder="نظر خود را بنویسید..."></textarea>
+                                <button type="submit" class="btn btn-primary rounded-2xl">ارسال نظر</button>
+                            </form>
                             @endif
-                            <textarea class="textarea textarea-bordered w-full h-36 rounded-2xl" placeholder="نظر خود را بنویسید..."></textarea>
-                            <button class="btn btn-primary rounded-2xl">ارسال پیام</button>
+
                         </div>
                     </div>
                 </div>

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('image');
             $table->timestamps();
         });
-        
+
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('EngineerSpecialty');
             $table->string('EngineerPhoto');
             $table->longText('about');
-            $table->dateTime('start date');
+            $table->dateTime('start_date');
             $table->string('image');
             $table->timestamps();
         });

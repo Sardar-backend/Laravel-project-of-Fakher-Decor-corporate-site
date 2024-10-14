@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\blog;
 use App\Models\blogcategory;
+use App\Models\comment;
 use App\Models\contact;
 use App\Models\project;
 use App\Models\User;
+// use Egulias\EmailValidator\Warning\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -40,9 +42,10 @@ class HomeController extends Controller
         $blog->update(['count_view'=>$count_view]);
         $PopularBlogs=blog::orderBy('count_view')->limit(4)->get();
         $categories = blogcategory::where('parent',0)->get();
+        $comments = comment::where('parent_id',0)->where('status',1)->get();
         //$categories = blogcategory::all();
         // dd($PopularBlogs);
-        return view( 'single-blog', compact('blog','PopularBlogs','categories'));
+        return view( 'single-blog', compact('blog','PopularBlogs','categories','comments'));
     }
     public function project_single(int $id){
         $project=project::findOrFail($id)->first();
@@ -88,6 +91,17 @@ class HomeController extends Controller
         return view('login');
     }
 
+    public function craete_comment(Request $request){
+        $data = $request->validate([
+            'parent_id' => 'max:255',
+            'user_id' => 'required',
+            'content' => 'required'
+
+        ]);
+        comment::create($data);
+        Alert::success('نظر شما ارسال شد','دیدگاه شما پس از تائید نمایش داده خواهد شد');
+        return back();
+    }
     public function login_post(Request $request){
         $data=$request->validate([
             'name' => ['required'],

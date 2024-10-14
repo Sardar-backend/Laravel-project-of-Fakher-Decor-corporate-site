@@ -9,6 +9,7 @@ class blogcategory extends Model
 {
     use HasFactory;
     protected $table = 'blogcategorys';
+    protected $fillable =['name','parent'];
 
     public function child(){
         return $this->hasMany(blogcategory::class,'parent', 'id');
