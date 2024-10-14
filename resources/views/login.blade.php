@@ -18,21 +18,22 @@
             <div class="bg-white rounded-2xl overflow-hidden">
                 <div class="flex flex-col md:flex-row gap-8">
                     <div class="flex-1 p-8 md:p-4 lg:p-20 md:pb-0">
-                        <form action="#">
+                        <form action="" method="post">
+                            @csrf
                             <h2 class="text-3xl font-YekanBakh-ExtraBlack my-4">ورود</h2>
                             <label class="label">
                                 <span class="label-text-alt">نام کاربری:</span>
                               </label>
-                            <input type="text" class="input input-bordered w-full my-2" />
+                            <input name="name" type="text" class="input input-bordered w-full my-2" />
                             <label class="label">
                                 <span class="label-text-alt">پسورد:</span>
                               </label>
-                            <input type="password" class="input input-bordered w-full my-2" />
-                            <button class="btn btn-primary w-full my-4">ورود</button>
+                            <input name="password" type="password" class="input input-bordered w-full my-2" />
+                            <button type="submit" class="btn btn-primary w-full my-4">ورود</button>
                         </form>
-                        <p class="text-center my-4">رمز عبور خود را <a href="#">فراموش </a>کرده اید؟</p>
+                        <!-- <p class="text-center my-4">رمز عبور خود را <a href="#">فراموش </a>کرده اید؟</p> -->
                         <div class="divider my-8">یا</div>
-                        <p class="text-center my-4"><a href="sign-up.html">حساب کاربری ندارید !!!</a></p>
+                        <p class="text-center my-4"><a href="register">حساب کاربری ندارید !!!</a></p>
                     </div>
                     <div class="hidden md:block">
                         <img class="bg-cover" src="../assets/images/login.jpg" alt="">

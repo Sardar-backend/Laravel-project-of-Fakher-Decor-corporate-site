@@ -18,23 +18,28 @@
             <div class="bg-white rounded-2xl overflow-hidden">
                 <div class="flex flex-col md:flex-row gap-8">
                     <div class="flex-1 p-8 md:p-4 lg:p-20 md:pb-0">
-                        <form action="#">
+                        <form action="" method="post">
+                            @csrf
                             <h2 class="text-3xl font-YekanBakh-ExtraBlack my-4">ثبت نام</h2>
                             <label class="label">
                                 <span class="label-text-alt">نام و نام خانوادگی:</span>
                               </label>
-                            <input type="text" class="input input-bordered w-full my-2" />
+                            <input name="name" type="text" class="input input-bordered w-full my-2" />
                             <label class="label">
                                 <span class="label-text-alt">ایمیل:</span>
                               </label>
-                            <input type="email" class="input input-bordered w-full my-2" />
+                            <input name="email" type="email" class="input input-bordered w-full my-2" />
                             <label class="label">
                                 <span class="label-text-alt">پسورد:</span>
                               </label>
-                            <input type="password" class="input input-bordered w-full my-2" />
-                            <button class="btn btn-primary w-full my-4">ثبت نام</button>
+                            <input name="password" type="password" class="input input-bordered w-full my-2" />
+                            <label class="label">
+                                <span class="label-text-alt">تائید پسورد:</span>
+                              </label>
+                            <input name="password_confirmation" type="password" class="input input-bordered w-full my-2" />
+                            <button type="submit" class="btn btn-primary w-full my-4">ثبت نام</button>
                         </form>
-                        <p class="text-center my-4">قبلا ثبت نام کرده اید؟ <a href="login.html">وارد شوید</a></p>
+                        <p class="text-center my-4">قبلا ثبت نام کرده اید؟ <a href="login">وارد شوید</a></p>
                     </div>
                     <div class="hidden md:block">
                         <img class="bg-cover" src="../assets/images/sign-up.jpg" alt="">

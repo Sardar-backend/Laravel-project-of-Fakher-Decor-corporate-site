@@ -16,3 +16,9 @@ Route::get('/project-single{id}',[HomeController::class,'project_single'])->name
 Route::get('/about',[HomeController::class,'about'])->name('about');
 Route::get('/contact',[HomeController::class,'contact'])->name('contact');
 Route::post('/contact',[HomeController::class,'contact_post'])->name('contact_post');
+
+Route::get('/login',[HomeController::class,'login'])->name('login');
+Route::post('/login',[HomeController::class,'login_post'])->name('login_post');
+
+Route::get('/register',[HomeController::class,'register'])->name('register');
+Route::post('/register',[HomeController::class,'register_post'])->name('register_post');

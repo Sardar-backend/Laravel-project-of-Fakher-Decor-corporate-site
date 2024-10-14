@@ -6,7 +6,9 @@ use App\Models\blog;
 use App\Models\blogcategory;
 use App\Models\contact;
 use App\Models\project;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
@@ -69,10 +71,84 @@ class HomeController extends Controller
 
     }
     public function about(){
+        Auth::loginUsingId(1);
+
         return view('about-us');
     }
 
     public function contact(){
+        Auth::logout();
         return view('contact-us');
     }
+
+    public function login(){
+        if (auth()->check()) {
+            return redirect()->route('index'); // هدایت به صفحه اصلی اگر کاربر وارد شده باشد
+        }
+        return view('login');
+    }
+
+    public function login_post(Request $request){
+        $data=$request->validate([
+            'name' => ['required'],
+            'password' => ['required','string','min:8'],
+        ],[
+            'password.required' => 'لطفاً رمز عبور خود را وارد کنید.',
+            'password.min' => 'رمز عبور حداقل باید 8 کاراکتر باشد.',
+            'name.required' => 'لطفاً نام کاربری خود را وارد کنید.',
+
+        ]);
+        if (auth()->attempt(['name' => $data['name'], 'password' => $data['password']])) {
+            // ورود موفقیت‌آمیز
+            Alert::success('ورود موفقیت آمیز بود','با موفقیت وارد وبسایت ما شدید');
+            return redirect()->route('index')->with('success', 'با موفقیت وارد شدید');
+        }
+
+        Alert::error('ورود موفقیت آمیز نبود','لطفا دوباره تلاش کنید');
+        return back();
+        // Alert::error('ورود ناموفق','نام کاربری یا
+    }
+
+    public function register(){
+        if (auth()->check()) {
+            return redirect()->route('index'); // هدایت به صفحه اصلی اگر کاربر وارد شده باشد
+        }
+        return view('register');
+    }
+    public function register_post(Request $request){
+
+        $data = $request->validate([
+            'name' => ['required', 'string', 'unique:users', 'max:255'],
+            'email' => ['required', 'email', 'unique:users', 'max:255'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ], [
+            'name.required' => 'لطفاً نام  خود را وارد کنید.',
+            'email' => ['required', 'email', 'unique:users', 'max:255'],
+            'name.unique' => 'این نام  قبلاً ثبت‌نام شده است.',
+            'email.required' => 'لطفاً آدرس ایمیل خود را وارد کنید.',
+            'email.email' => 'لطفاً یک آدرس ایمیل معتبر وارد کنید.',
+            'email.unique' => 'این آدرس ایمیل قبلاً ثبت‌نام شده است.',
+            'password.required' => 'لطفاً رمز عبور خود را وارد کنید.',
+            'password.min' => 'رمز عبور حداقل باید 8 کاراکتر باشد.',
+            'password.confirmed' => 'رمز عبور با تأییدیه مطابقت ندارد.',
+        ]);
+
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
+
+        auth()->login($user);
+        Alert::success('عضویت موفقیت آمیز بود','با موفقیت عضو وبسایت ما شدید');
+        return redirect('/');
+
+    }
+
+
+    public function logout(){
+        auth()->logout();
+        return redirect()->route('home');
+    }
+
 }
