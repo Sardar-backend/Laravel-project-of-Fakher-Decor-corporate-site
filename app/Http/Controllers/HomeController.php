@@ -6,6 +6,7 @@ use App\Models\blog;
 use App\Models\blogcategory;
 use App\Models\comment;
 use App\Models\contact;
+use App\Models\newsletter;
 use App\Models\project;
 use App\Models\User;
 // use Egulias\EmailValidator\Warning\Comment;
@@ -49,7 +50,8 @@ class HomeController extends Controller
     }
     public function project_single(int $id){
         $project=project::findOrFail($id)->first();
-        return view( 'single-project',compact('project'));
+        $images=$project->gallery()->get();
+        return view( 'single-project',compact('project',  'images'));
     }
 
     public function contact_post(Request $request){
@@ -159,6 +161,14 @@ class HomeController extends Controller
 
     }
 
+    public function newsletter(Request $request){
+        $data=$request->validate([
+            'email' => ['required', 'email','unique:newsletters']
+        ]);
+        newsletter::create($data);
+        Alert::success('ایمیل شما با موفقیت ثبت شد','با موفقیت عضو خبرنامه ما شدید');
+        return back();
+    }
 
     public function logout(){
         auth()->logout();

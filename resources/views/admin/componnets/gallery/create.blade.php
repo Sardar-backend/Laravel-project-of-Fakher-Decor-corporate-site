@@ -10,16 +10,17 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form class="form-horizontal" action="{{ route('product.gallery.store' , ['product' => $product->id]) }}" method="POST" enctype="multipart/form-data">
+                <form class="form-horizontal" action="{{ route('project.gallery.store' , ['project' => $project->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <input type="hidden" name="product_id" value="{{$product->id}}">
+                    <input type="hidden" name="project_id" value="{{$project->id}}">
                     <div id="father">
                      <!-- card -->
                     <div class="card-body">
-                    <div class="form-group"><div class="col-sm-10">
-                    <label for="inputEmail3" class="col-sm-2 control-label">تصویر</label>
-                    <textarea id="my-editor" name="image" class="form-control">{!! old('content', '') !!}</textarea>
-                    </div>
+                    <div class="form-group">
+
+                    <div class="col-sm-10">
+                    <label for="email">عکس مقاله  :</label>
+                    <input name="image" accept="image/*" type="file" class="form-control"   ></div>
                     <br>
                     <div class="col-sm-10">
                     <label for="inputEmail3" class="col-sm-2 control-label">توضیحات</label>
@@ -31,12 +32,12 @@
 
                     <!-- card -->
                     </div>
-                        <!-- <button class="btn btn-sm btn-danger" type="button" id="add_product_image">تصویر جدید</button>
+                        <!-- <button class="btn btn-sm btn-danger" type="button" id="add_project_image">تصویر جدید</button>
                     </div> -->
                     <!-- /.card-body -->
                     <div class="card-footer">
                         <button type="submit" class="btn btn-info">ثبت تصاویر</button>
-                        <a href="{{ route('product.gallery.index' , ['product' => $product->id]) }}" class="btn btn-default float-left">لغو</a>
+                        <a href="{{ route('project.gallery.index' , ['project' => $project->id]) }}" class="btn btn-default float-left">لغو</a>
                     </div>
                     <!-- /.card-footer -->
                 </form>

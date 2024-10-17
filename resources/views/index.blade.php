@@ -7,8 +7,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../node_modules/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="build/style.css">
+    <link rel="stylesheet" href="{{ asset(path: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css')}}">
+
+
     <title>صفحه اصلی</title>
 
+
+        <style>
+        .alert{
+            padding: 1rem;
+            border: 1px solid #f1b3b9;
+            background-color: #f8d7da;
+            border-radius: 10px;
+        }
+        .s{
+            color: #b63844;
+            margin-bottom: 0.5rem;
+        }
+        .div{
+            display: flex !important;
+            align-items: flex-start !important ;
+            margin-top: 5rem !important;
+
+        }
+        /* .text-sm .absolute {
+            margin-top: 1rem;
+        } */
+        /* .div>h3{
+            font-size: larger !important;
+        } */
+        .flex .gap-2{
+            display: flex !important;
+            align-content: center !important;
+        }
+        .gf{
+            padding-top: 5px;
+            width: 1.5rem;
+            height: 1.5rem;
+            font-size: 22px;
+        }
+    </style>
+        <style>
+
+
+        .language-menu {
+            position: relative;
+            display: inline-block;
+        }
+        .menu-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            z-index: 1;
+            left: 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .menu-content a {
+            display: block;
+            padding: 5px;
+            text-decoration: none;
+            color: black;
+        }
+
+
+        .menu-content a:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
 <body class="font-YekanBakh-Regular text-sm bg-slate-50">
 
@@ -97,11 +164,19 @@
                               </div>
                             </form>
                           </dialog>
-                        <a class="p-2.5 flex items-center cursor-pointer" onclick="my_modal_3.showModal()">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                              </svg>
-                        </a>
+                          <div class="language-menu">
+                            <i class="fas fa-globe gf" style="font-size: 24px; cursor: pointer;" onclick="toggleMenu()"></i> <!-- آیکون گلوب -->
+                            <div class="menu-content" id="languageMenu">
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+
+                                    <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                        {{ $properties['native'] }}
+                                    </a>
+
+                            @endforeach
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
@@ -125,42 +200,46 @@
     <section class="my-20 px-4">
         <div class="container mx-auto max-w-screen-xl">
             <div class="text-center mb-10">
-                <h2 class="text-3xl font-YekanBakh-ExtraBlack">برخی از خدمات شرکت</h2>
+                <h2 class="text-3xl font-YekanBakh-ExtraBlack">{{ __('messages.company_services') }}</h2>
                 <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="bg-white p-4 flex items-center justify-center flex-col leading-8 rounded-2xl">
+            <div class="bg-white p-4 flex items-center justify-center flex-col leading-8 rounded-2xl">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-14 h-14 pb-3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
-                      </svg>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 2.25l9.75 9.75h-3.75v7.5H6.75v-7.5H3L12 2.25z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 21.75v-6h4.5v6h-4.5z" />
+                    </svg>
 
 
-                    <h3 class="border-t-4 border-yellow-400 pt-3 font-YekanBakh-Bold text-sm">شخصی سازی آسان</h3>
-                    <p class="mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ..</p>
-                </div>
-                <div class="bg-white p-4 flex items-center justify-center flex-col leading-8 rounded-2xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-14 h-14 pb-3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
-                      </svg>
 
-                    <h3 class="border-t-4 border-yellow-400 pt-3 font-YekanBakh-Bold text-sm">کد نویسی تمیز و استاندارد</h3>
-                    <p class="mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ..</p>
-                </div>
-                <div class="bg-white p-4 flex items-center justify-center flex-col leading-8 rounded-2xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-14 h-14 pb-3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
-                      </svg>
 
-                    <h3 class="border-t-4 border-yellow-400 pt-3 font-YekanBakh-Bold text-sm">کاملا ریسپانسیو و واکنشگرا</h3>
-                    <p class="mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ..</p>
-                </div>
-                <div class="bg-white p-4 flex items-center justify-center flex-col leading-8 rounded-2xl">
+                        <h3 class="border-t-4 border-yellow-400 pt-3 font-YekanBakh-Bold text-sm"> {{ __('messages.home_interior_design') }} </h3>
+                        <p class="mt-2">{{ __('messages.interior_design_description') }}</p>
+                    </div>
+                    <div class="bg-white p-4 flex items-center justify-center flex-col leading-8 rounded-2xl">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-14 h-14 pb-3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3" />
-                      </svg>
-                    <h3 class="border-t-4 border-yellow-400 pt-3 font-YekanBakh-Bold text-sm">پیاده سازی با Tailwind Css</h3>
-                    <p class="mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ..</p>
-                </div>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21V5.25A2.25 2.25 0 0018.75 3h-13.5A2.25 2.25 0 003 5.25V21m18 0H3m18 0a2.25 2.25 0 002.25-2.25v-13.5A2.25 2.25 0 0021 3.75M3 21a2.25 2.25 0 01-2.25-2.25v-13.5A2.25 2.25 0 013 3.75m9 3v9" />
+                    </svg>
+
+                        <h3 class="border-t-4 border-yellow-400 pt-3 font-YekanBakh-Bold text-sm">{{ __('messages.office_space_design') }}</h3>
+                        <p class="mt-2"> {{ __('messages.office_interior_design') }}</p>
+                    </div>
+                    <div class="bg-white p-4 flex items-center justify-center flex-col leading-8 rounded-2xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-14 h-14 pb-3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+                          </svg>
+
+                        <h3 class="border-t-4 border-yellow-400 pt-3 font-YekanBakh-Bold text-sm">{{ __('messages.renovation_and_remodeling') }}</h3>
+                        <p class="mt-2">{{ __('messages.renovation_services') }}</p>
+                    </div>
+                    <div class="bg-white p-4 flex items-center justify-center flex-col leading-8 rounded-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-14 h-14 pb-3">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 9V7.5A2.25 2.25 0 016.75 5.25h10.5A2.25 2.25 0 0119.5 7.5V9M3 21v-9m18 9v-9m-10.5 3.75v5.25m1.5 0v-5.25M6 21h12" />
+</svg>
+
+                        <h3 class="border-t-4 border-yellow-400 pt-3 font-YekanBakh-Bold text-sm"> {{ __('messages.modern_kitchen_design_and_execution') }} </h3>
+                        <p class="mt-2"> {{ __('messages.modern_kitchen_design') }}</p>
+                    </div>
             </div>
         </div>
     </section>
@@ -169,7 +248,7 @@
         <div class="container mx-auto max-w-screen-2xl">
             <div class="py-20">
                 <div class="text-center mb-10">
-                    <h2 class="text-3xl text-white font-YekanBakh-ExtraBlack">پروژه ها</h2>
+                    <h2 class="text-3xl text-white font-YekanBakh-ExtraBlack"> {{ __('messages.projects') }}</h2>
                     <p class="text-white mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
                 </div>
                 <div class="swiper project">
@@ -178,14 +257,14 @@
 
                         <div class="swiper-slide text-center group/proj cursor-pointer">
                           <div class="relative overflow-hidden bg-cover bg-no-repeat rounded-2xl">
-                              <a href="single-project.html">
-                                  <img class="relative" src="../assets/images/blog-1.jpg" alt="" srcset="">
+                              <a href="{{route('project_single',['id'=>$project->id])}}">
+                                  <img class="relative" src="/storage/{{$project->gallery()->first()->image}}" alt="" srcset="">
                                   <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-gradient-to-t from-slate-900 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-70"></div>
                               </a>
                           </div>
                           <figcaption class="absolute bottom-2 w-full invisible group-hover/proj:visible transition ease-in duration-1000 group-hover/proj:transition-all group-hover/proj:-translate-y-4 group-hover/proj:duration-1000 group-hover/proj:text-white">
                               <h3 class="font-YekanBakh-Bold text-sm">{{$project->name}}</h3>
-                              <p class="">جهت مشاهده مطالب کلیک کنید</p>
+                              <p class="">{{ __('messages.click_to_view') }}</p>
                           </figcaption>
                         </div>
                         @endforeach
@@ -197,7 +276,7 @@
 
     <section class="my-20 px-4">
         <div class="text-center mb-10">
-            <h2 class="text-3xl font-YekanBakh-ExtraBlack">درباره شرکت</h2>
+            <h2 class="text-3xl font-YekanBakh-ExtraBlack">{{ __('messages.about_company') }} </h2>
             <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
         </div>
         <div class="container mx-auto max-w-screen-xl">
@@ -207,9 +286,9 @@
                 </div>
                 <div class="col-span-12 md:col-span-8 leading-8">
                     <p class="mb-4">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                    {{ __('messages.company_intro') }}
                     </p>
-                    <a href="{{route('about')}}" class="bg-yellow-400 py-4 px-8 rounded-2xl">بیشتر بخوانید</a>
+                    <a href="{{route('about')}}" class="bg-yellow-400 py-4 px-8 rounded-2xl">{{ __('messages.read_more') }}</a>
                 </div>
             </div>
         </div>
@@ -218,7 +297,7 @@
     <section class="my-20 px-4">
         <div class="container mx-auto max-w-screen-xl">
             <div class="text-center mb-10">
-                <h2 class="text-3xl font-YekanBakh-ExtraBlack">نظرات کاربران</h2>
+                <h2 class="text-3xl font-YekanBakh-ExtraBlack"> {{ __('messages.user_reviews') }}</h2>
                 <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
             </div>
             <div class="swiper customer">
@@ -296,7 +375,7 @@
     <section class="my-20 px-4">
         <div class="container mx-auto max-w-screen-xl">
             <div class="text-center mb-10">
-                <h2 class="text-3xl font-YekanBakh-ExtraBlack">اخبار و مقالات</h2>
+                <h2 class="text-3xl font-YekanBakh-ExtraBlack"> {{ __('messages.news_articles') }}</h2>
                 <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -305,9 +384,9 @@
                 <div class="bg-white rounded-2xl overflow-hidden">
                     <div class="relative">
                         <div class="flex justify-center">
-                            <a href="{{route('blog_single',['id'=>$blog->id])}}" class="absolute -bottom-4 bg-white p-2 rounded-lg shadow-lg">دسته بندی: {{$blog->categories()->first()->name}}</a>
+                            <a href="{{route('blog_single',['id'=>$blog->id])}}" class="absolute -bottom-4 bg-white p-2 rounded-lg shadow-lg"> {{ __('messages.category') }}: {{$blog->categories()->first()->name}}</a>
                         </div>
-                        <a href="{{route('blog_single',['id'=>$blog->id])}}"><img src="../assets/images/blog-1.jpg" alt=""></a>
+                        <a href="{{route('blog_single',['id'=>$blog->id])}}"><img src="/storage/{{$blog->image}}" alt=""></a>
                     </div>
                     <div class="p-4 leading-8 w-full">
                         <a href="{{route('blog_single',['id'=>$blog->id])}}"><h3 class="font-YekanBakh-Bold mt-6 mb-2 text-slate-800 text-sm">{{$blog->title}}</h3></a>
@@ -324,7 +403,7 @@
     <section class="my-20 px-4">
         <div class="container mx-auto max-w-screen-xl">
             <div class="text-center mb-10">
-                <h2 class="text-3xl font-YekanBakh-ExtraBlack">همکاران ما</h2>
+                <h2 class="text-3xl font-YekanBakh-ExtraBlack"> {{ __('messages.our_team') }}</h2>
                 <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
             </div>
             <div class="swiper partners">
@@ -411,14 +490,30 @@
         </div>
     </footer>
 
-    <footer class="footer footer-center p-4 bg-slate-700 text-white">
+    <!-- <footer class="footer footer-center p-4 bg-slate-700 text-white">
         <div>
           <p>Copyright © 2023 - تمامی حقوق برای راست چین محفوظ می باشد</p>
         </div>
-    </footer>
+    </footer> -->
 
     <script src="../node_modules/swiper/swiper-bundle.min.js"></script>
     <script src="../src/js/main.js"></script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("languageMenu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+
+        // بستن منو وقتی کاربر روی جاهای دیگر کلیک می‌کند
+        window.onclick = function(event) {
+            if (!event.target.matches('.fas.fa-globe')) {
+                const menu = document.getElementById("languageMenu");
+                if (menu.style.display === "block") {
+                    menu.style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 
 <!-- Mirrored from mahdghanon.ir/public/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Aug 2023 06:34:50 GMT -->

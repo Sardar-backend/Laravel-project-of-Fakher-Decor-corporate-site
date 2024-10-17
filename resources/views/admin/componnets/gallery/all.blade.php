@@ -9,7 +9,7 @@
 
                     <div class="card-tools d-flex">
                         <div class="btn-group-sm mr-1">
-                            <a href="{{ route('product.gallery.create' , ['product' => $product->id]) }}" class="btn btn-info">ثبت تصویر جدید</a>
+                            <a href="{{ route('project.gallery.create' , ['project' => $project->id]) }}" class="btn btn-info">ثبت تصویر جدید</a>
 
                         </div>
                     </div>
@@ -19,10 +19,10 @@
                     <div class="row">
                         @foreach($images as $image)
                             <div class="col-sm-2">
-                                <a href="{{ url($image['image']) }}">
-                                    <img src="{{ url($image['image']) }}" class="img-fluid mb-2" alt="{{ url($image['alt']) }}">
+                                <a href="">
+                                    <img src="/storage/{{$image->image}}" class="img-fluid mb-2" alt="">
                                 </a>
-                                <form action="{{ route('product.gallery.destroy' , ['product' => $product->id , 'gallery' => $image->id]) }}" id="image-{{ $image->id }}" method="post">
+                                <form action="{{ route('project.gallery.destroy' , ['project' => $project->id , 'gallery' => $image->id]) }}" id="image-{{ $image->id }}" method="post">
                                     @method('delete')
                                     @csrf
                                 </form>

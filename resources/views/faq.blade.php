@@ -4,11 +4,11 @@
       <div class="bg-[url('/assets/images/ber.jpg')] bg-no-repeat h-40 md:h-64 relative">
           <div class="flex justify-center">
               <div class="text-sm absolute top-1/4 md:top-1/2">
-                  <h2 class="text-3xl font-YekanBakh-ExtraBlack my-4">سوالات متداول</h2>
+                  <h2 class="text-3xl font-YekanBakh-ExtraBlack my-4">{{ __('messages.frequently_asked_questions') }}</h2>
                   <div class="breadcrumbs flex justify-center">
                       <ul class="">
                         <li><a>خانه</a></li>
-                        <li>سوالات متداول</li>
+                        <li>{{ __('messages.frequently_asked_questions') }}</li>
                       </ul>
                   </div>
                 </div>

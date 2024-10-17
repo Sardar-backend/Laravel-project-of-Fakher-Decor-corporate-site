@@ -9,4 +9,8 @@ class project extends Model
 {
     use HasFactory;
     protected $fillable = ['about'];
+
+    public function gallery(){
+        return $this->hasMany('App\Models\Gallery');
+    }
 }

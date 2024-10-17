@@ -5,11 +5,11 @@
       <div class="bg-[url('/assets/images/ber.jpg')] bg-no-repeat h-40 md:h-64 relative">
           <div class="flex justify-center">
               <div class="text-sm absolute top-1/4 md:top-1/2">
-                  <h2 class="text-3xl font-YekanBakh-ExtraBlack my-4">تماس با ما</h2>
+                  <h2 class="text-3xl font-YekanBakh-ExtraBlack my-4">{{ __('messages.contact_us') }}</h2>
                   <div class="breadcrumbs flex justify-center">
                       <ul class="">
                         <li><a>خانه</a></li>
-                        <li>تماس با ما</li>
+                        <li> {{ __('messages.contact_us') }} </li>
                       </ul>
                   </div>
                 </div>
@@ -22,7 +22,7 @@
         <div class="container mx-auto max-w-screen-xl">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <h3 class="text-xl font-YekanBakh-ExtraBold mb-2">راه های ارتباطی ...</h3>
+                <h3 class="text-xl font-YekanBakh-ExtraBold mb-2"> {{ __('messages.contact_methods') }}</h3>
                 <div class="bg-white p-4 rounded-2xl flex items-center gap-4 my-4">
                   <div class="bg-yellow-400 p-2 rounded-xl">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-white">
@@ -31,7 +31,7 @@
                     </svg>
                   </div>
                   <div>
-                    <h3 class="text-base font-YekanBakh-ExtraBold mb-2">آدرس:</h3>
+                    <h3 class="text-base font-YekanBakh-ExtraBold mb-2">{{ __('messages.address') }}:</h3>
                     <p> تهران، خیابان، کوچه، فرعی 2</p>
                   </div>
                 </div>
@@ -43,7 +43,7 @@
 
                   </div>
                   <div>
-                    <h3 class="text-base font-YekanBakh-ExtraBold mb-2">پست الکترونیکی:</h3>
+                    <h3 class="text-base font-YekanBakh-ExtraBold mb-2">  {{ __('messages.email') }}:</h3>
                     <p>sitename@info.com</p>
                   </div>
                 </div>
@@ -55,13 +55,13 @@
 
                   </div>
                   <div>
-                    <h3 class="text-base font-YekanBakh-ExtraBold mb-2">شماره تماس:</h3>
+                    <h3 class="text-base font-YekanBakh-ExtraBold mb-2"> {{ __('messages.contact_number') }}:</h3>
                     <p>09011111111 - 02155211111</p>
                   </div>
                 </div>
               </div>
               <div>
-                <h3 class="text-xl font-YekanBakh-ExtraBold mb-2">با ما در ارتباط باشید...</h3>
+                <h3 class="text-xl font-YekanBakh-ExtraBold mb-2">{{ __('messages.contact_us') }}</h3>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -75,18 +75,18 @@
                     @csrf
                 <div class="form-control w-full">
                   <label class="label">
-                    <span class="label-text-alt">موضوع پیام:</span>
+                    <span class="label-text-alt">{{ __('messages.message_subject') }}</span>
                   </label>
                   <input name="subject" type="text" class="input input-bordered w-full" />
                   <label class="label">
-                    <span class="label-text-alt">پست الکترونیکی:</span>
+                    <span class="label-text-alt"> {{ __('messages.email') }}</span>
                   </label>
                   <input name="email" type="email" class="input input-bordered w-full" />
                   <label class="label">
-                    <span class="label-text-alt">متن پیام:</span>
+                    <span class="label-text-alt">{{ __('messages.message_text') }}</span>
                   </label>
                   <textarea name="content" class="textarea textarea-bordered h-24" placeholder="متن پیام را بنویسید..."></textarea>
-                  <button type="submit" class="btn btn-primary my-3">ارسال پیام</button>
+                  <button type="submit" class="btn btn-primary my-3">{{ __('messages.submit_message') }}</button>
                 </div></form>
               </div>
               <div class="">
