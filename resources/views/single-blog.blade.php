@@ -143,7 +143,7 @@
                 <h2 class="text-3xl font-YekanBakh-ExtraBlack my-4">جزئیات وبلاگ</h2>
                 <div class="breadcrumbs flex justify-center">
                     <ul class="">
-                      <li><a>خانه</a></li>
+                      <li><a>{{ __('messages.Home') }}</a></li>
                       <li>جزئیات وبلاگ</li>
                     </ul>
                 </div>
@@ -200,7 +200,12 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                       </svg>
+                                      @if (LaravelLocalization::getCurrentLocale() == 'en')
+                                        {{Carbon\Carbon::parse($blog->updated_at)->format('Y-m-d')}}
+                                    @else
                                         {{jdate($blog->updated_at)->format('%B %d، %Y')}}
+                                    @endif
+                                        <!-- {{jdate(str: $blog->updated_at)->format('%B %d، %Y')}} -->
                                 </span>
                                 <span class="flex items-center gap-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -230,7 +235,14 @@
                                                                             </div>
                                                                             <div class="col-9 col-sm-10 col-md-11 pr-0 pr-md-2 pr-xl-0 pt-0 pt-lg-1">
                                                                                 <div class="name">{{$comment->user->name}}</div>
-                                                                                <div class="date">ارسال شده در {{jdate($comment->failed_at)->ago()}}</div>
+                                                                                <div class="date">ارسال شده در
+
+                                                                                @if (LaravelLocalization::getCurrentLocale() == 'en')
+                                                                                    {{Carbon\Carbon::parse($comment->failed_at)->ago()}}
+                                                                                @else
+                                                                                    {{jdate($comment->failed_at)->ago()}}
+                                                                                @endif
+                                                                                </div>
                                                                             </div>
                                                                             <div class="col-12">
                                                                                 <p>{{$comment->content}}</p>
@@ -258,7 +270,13 @@
                                                                                         </div>
                                                                                         <div class="col-9 col-sm-10 col-md-11 pr-0 pr-md-2 pr-xl-0 pt-0 pt-lg-1">
                                                                                             <div class="name">{{$child->user->name}}</div>
-                                                                                            <div class="date">ارسال شده در {{jdate($child->failed_at)->ago()}}</div>
+                                                                                            <div class="date">ارسال شده در
+                                                                                            @if (LaravelLocalization::getCurrentLocale() == 'en')
+                                                                                    {{Carbon\Carbon::parse($child->failed_at)->ago()}}
+                                                                                @else
+                                                                                    {{jdate($child->failed_at)->ago()}}
+                                                                                @endif
+                                                                                            </div>
                                                                                         </div>
                                                                                         <div class="col-12">
                                                                                             <p>{{$child->content}}</p>

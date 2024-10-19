@@ -57,9 +57,25 @@ return [
 'register' => 'Register',
 'confirm_password' => 'Confirm Password',
 'already_registered' => 'Already registered? Log in',
-
-
-
+'decor_services' => 'Fakher Decor offers interior design and implementation services, including consultation, 3D design, material selection, and execution of decoration projects for residential, commercial, and office spaces.',
+'how_to_book_consultation' => 'How can I book an interior design consultation?',
+'booking_consultation_info' => 'You can contact us through the website contact form, phone call, or email to schedule your consultation with our design team.',
+'cost_calculation' => 'How is the cost of design and implementation of decoration calculated?',
+'cost_details' => 'Costs are calculated based on the type of project, area size, materials used, and the complexity level of the design. For more accurate information, you can request a cost estimate from us.',
+'timeframe' => 'How long does the project execution take?',
+'project_duration' => 'The duration of the project depends on the type of project and the amount of work required. Generally, small projects like remodeling a room may take a few weeks, while larger projects like designing an entire interior space may take several months.',
+'3d_design_offer' => 'Do you provide 3D design before starting the project?',
+'3d_design_response' => 'Yes, before starting the project, we create a 3D design of your space so you can have an accurate preview of the final design and make necessary adjustments before work begins.',
+'services_offered' => 'What services are offered by Fakher Decor?',
+'Home' => 'Home',
+'page_not_found' => 'Page not found!',
+'go_to_home_page' => 'Go to home page',
+'area' => 'Area',
+'start_date' => 'Start Date',
+'financial_value' => 'Financial Value',
+'project_location' => 'Project Location',
+'foundation_area' => 'Foundation Area',
+'project_name' => 'Project name',
 
 
 

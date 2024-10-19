@@ -7,7 +7,7 @@
                   <h2 class="text-3xl font-YekanBakh-ExtraBlack my-4">{{ __('messages.frequently_asked_questions') }}</h2>
                   <div class="breadcrumbs flex justify-center">
                       <ul class="">
-                        <li><a>خانه</a></li>
+                        <li><a>            {{ __('messages.Home') }}</a></li>
                         <li>{{ __('messages.frequently_asked_questions') }}</li>
                       </ul>
                   </div>
@@ -22,46 +22,58 @@
           <div class="collapse collapse-plus bg-base-200 my-4">
             <input type="radio" name="my-accordion-3" checked="checked" />
             <div class="collapse-title text-base font-YekanBakh-ExtraBold">
-              فرم ها را چگونه می توانم دانلود کنم؟
+            {{ __('messages.3d_design_offer') }}
+
             </div>
             <div class="collapse-content">
-              <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+                <p>            {{ __('messages.3d_design_response') }}
+                </p>
             </div>
           </div>
           <div class="collapse collapse-plus bg-base-200 my-4">
             <input type="radio" name="my-accordion-3" checked="checked" />
             <div class="collapse-title text-base font-YekanBakh-ExtraBold">
-              آیا پس از عضویت نیاز به تایید ایمیل است؟
+            {{ __('messages.timeframe') }}
+
             </div>
             <div class="collapse-content">
-              <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+                <p>            {{ __('messages.project_duration') }}
+                </p>
             </div>
           </div>
           <div class="collapse collapse-plus bg-base-200 my-4">
             <input type="radio" name="my-accordion-3" checked="checked" />
             <div class="collapse-title text-base font-YekanBakh-ExtraBold">
-              چگونه اکانت خود را بازیابی کنیم؟
+            {{ __('messages.cost_calculation') }}
+
             </div>
             <div class="collapse-content">
-              <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+        <p>                                {{ __('messages.cost_details') }}
+        </p>
+        </div>
+          </div>
+          <div class="collapse collapse-plus bg-base-200 my-4">
+            <input type="radio" name="my-accordion-3" checked="checked" />
+            <div class="collapse-title text-base font-YekanBakh-ExtraBold">
+            {{ __('messages.how_to_book_consultation') }}
+
+        </div>
+            <div class="collapse-content">
+                <p>
+                {{ __('messages.booking_consultation_info') }}
+
+                </p>
             </div>
           </div>
           <div class="collapse collapse-plus bg-base-200 my-4">
             <input type="radio" name="my-accordion-3" checked="checked" />
             <div class="collapse-title text-base font-YekanBakh-ExtraBold">
-            آیا برای سفارش خدمات تماس بگیریم؟
+            {{ __('messages.services_offered') }}
             </div>
             <div class="collapse-content">
-              <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-            </div>
-          </div>
-          <div class="collapse collapse-plus bg-base-200 my-4">
-            <input type="radio" name="my-accordion-3" checked="checked" />
-            <div class="collapse-title text-base font-YekanBakh-ExtraBold">
-            چگونه مشاوره رایگان دریافت کنیم؟
-            </div>
-            <div class="collapse-content">
-              <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+                <p>
+                                {{ __('messages.decor_services') }}
+                </p>
             </div>
           </div>
 

@@ -8,7 +8,7 @@
                 <h2 class="text-3xl font-YekanBakh-ExtraBlack my-4">{{ __('messages.our_services') }}</h2>
                 <div class="breadcrumbs flex justify-center">
                     <ul class="">
-                      <li><a>خانه</a></li>
+                      <li><a>{{ __('messages.Home') }}</a></li>
                       <li>{{ __('messages.our_services') }}</li>
                     </ul>
                 </div>

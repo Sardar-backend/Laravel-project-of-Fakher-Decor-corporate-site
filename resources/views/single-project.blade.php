@@ -196,7 +196,7 @@
                 <h2 class="text-3xl font-YekanBakh-ExtraBlack my-4">جزئیات پروژه</h2>
                 <div class="breadcrumbs flex justify-center">
                     <ul class="">
-                      <li><a>خانه</a></li>
+                      <li><a>{{ __('messages.Home') }}</a></li>
                       <li>جزئیات پروژه</li>
                     </ul>
                 </div>
@@ -238,29 +238,29 @@
                         <tbody>
                           <!-- row 1 -->
                           <tr>
-                            <th>نام پروژه:</th>
-                            <td>پروژه شماره یک</td>
+                            <th> {{ __('messages.project_name') }}:</th>
+                            <td>{{$project->name}}</td>
                           </tr>
                           <!-- row 2 -->
                           <tr>
-                            <th>مساحت:</th>
+                            <th>{{ __('messages.area') }}:</th>
                             <td>3000 هزار متر</td>
                           </tr>
                           <!-- row 3 -->
                           <tr>
-                            <th>تاریخ شروع:</th>
+                            <th> {{ __('messages.start_date') }}:</th>
                             <td>15 مرداد 1402</td>
                           </tr>
                           <tr>
-                            <th>زیربنا:</th>
+                            <th>{{ __('messages.foundation_area') }}:</th>
                             <td>3000</td>
                           </tr>
                           <tr>
-                            <th>ارزش مالی:</th>
+                            <th> {{ __('messages.financial_value') }}:</th>
                             <td>1 میلیارد</td>
                           </tr>
                           <tr>
-                            <th>محل پروژه:</th>
+                            <th> {{ __('messages.project_location') }}:</th>
                             <td>تهران</td>
                           </tr>
                         </tbody>

@@ -13,17 +13,50 @@
         background-color: white !important;
         color: black !important;
     }
-    .ico{
+    /* .ico{
             color: black !important;
             width: 4% !important;
             height: 4% !important;
             margin: 0 2px 0 2px !important;
 
-        }
+        } */
         .about-img{
             box-shadow: 25px 25px 15px #8A8A8A;
             border-radius: 2px !important;
         }
+        .social-icons {
+    display: flex;            /* آیکون‌ها کنار هم قرار می‌گیرند */
+    justify-content:flex-start;   /* مرکز کردن آیکون‌ها */
+    gap: 20px;                 /* فاصله بین آیکون‌ها */
+}
+
+.social-icons a {
+    display: inline-flex;      /* هر لینک به صورت بلوک در کنار هم قرار می‌گیرد */
+    justify-content: center;   /* مرکز کردن محتویات لینک */
+    align-items: center;       /* مرکز کردن محتویات لینک */
+    width: 40px;               /* عرض دایره */
+    height: 40px;              /* ارتفاع دایره */
+    background-color: #000;    /* رنگ پس‌زمینه دایره */
+    border-radius: 50%;        /* دایره‌ای کردن */
+    text-decoration: none;     /* حذف خط زیر لینک‌ها */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons i {
+    color: #fff;               /* رنگ آیکون‌ها سفید */
+    font-size: 24px;           /* اندازه آیکون‌ها */
+    transition: transform 0.3s ease;  /* انیمیشن برای تغییر اندازه */
+}
+
+.social-icons a:hover {
+    background-color: #333;    /* تغییر رنگ پس‌زمینه دایره هنگام هاور */
+    transform: scale(1.1);     /* بزرگ شدن دایره هنگام هاور */
+}
+
+.social-icons a:hover i {
+    color: #f0f0f0;            /* تغییر رنگ آیکون‌ها در هاور */
+}
+
 
 
 </style>
@@ -34,7 +67,7 @@
                     <h2 class="text-3xl font-YekanBakh-ExtraBlack my-4"> {{ __('messages.about') }}</h2>
                     <div class="breadcrumbs flex justify-center">
                         <ul class="">
-                          <li><a>خانه</a></li>
+                          <li><a>{{ __('messages.Home') }}</a></li>
                           <li> {{ __('messages.about') }}</li>
 
                         </ul>
@@ -58,14 +91,14 @@
                     <h4>{{ __('messages.mohammad_javad_sardar_abadi') }}  </h4>
                     <p>{{ __('messages.freelance_backend_developer') }}</p>
                     <P class="mt-2">{{ __('messages.committed_to_quality_solutions') }}</P>
-                    <div class="social-icons">
+                    <br><div class="social-icons">
                                 <a class="ico" target="_blank" href="https://www.instagram.com/sardar.devloper"  ><i class="ico fab fa-instagram"></i></a>    <!-- اینستاگرام -->
                                 <a class="ico" target="_blank" href="https://www.linkedin.com/in/mohammadjavad-sardar-48044a308"><i class="ico fab fa-linkedin"></i></a>     <!-- لینکدین -->
                                 <a class="ico" target="_blank" href="https://t.me/Sardar_backend"><i class="ico fab fa-telegram"></i></a>     <!-- تلگرام -->
                                 <a class="ico" target="_blank" href="https://github.com/Sardar-backend"><i class="ico fab fa-github"></i></a>       <!-- گیت‌هاب -->
 
 
-                            </div><br><br>
+                            </div><br>
                             <span class="about-button">
                                 <a style="color: inherit;" class="main-btn" href="">{{ __('messages.download_resume') }}</a>
                             </span>
