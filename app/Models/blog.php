@@ -11,17 +11,10 @@ class blog extends Model implements TranslatableContract
     use HasFactory;
     use Translatable;
 
-    protected $fillable = [
-        'title',
-        'content',
-        'image',
-        'count_view'
-    ];
+    protected $table = 'blogs';
+    protected $fillable = ['title','content','image','count_view'];
 
-    protected $translatedAttributes = [
-        'title',
-        'content',
-    ];
+    protected $translatedAttributes = ['title','content'];
 
     public function categories(){
         return $this->belongsToMany(blogcategory::class,'blogcategorys_blog');

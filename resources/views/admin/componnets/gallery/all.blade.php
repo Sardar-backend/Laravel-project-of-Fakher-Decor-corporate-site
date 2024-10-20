@@ -5,11 +5,11 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">تصاویر</h3>
+                    <h3 class="card-title">{{ __('messages.images') }}</h3>
 
                     <div class="card-tools d-flex">
                         <div class="btn-group-sm mr-1">
-                            <a href="{{ route('project.gallery.create' , ['project' => $project->id]) }}" class="btn btn-info">ثبت تصویر جدید</a>
+                            <a href="{{ route('project.gallery.create' , ['project' => $project->id]) }}" class="btn btn-info">  {{ __('messages.upload_new_image') }}</a>
 
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                                     @csrf
                                 </form>
 
-                                <a href="#" class="btn btn-sm btn-danger" onclick="document.getElementById('image-{{ $image->id }}').submit()">حذف</a>
+                                <a href="#" class="btn btn-sm btn-danger" onclick="document.getElementById('image-{{ $image->id }}').submit()">{{ __('messages.delete') }}</a>
                             </div>
                         @endforeach
                     </div>

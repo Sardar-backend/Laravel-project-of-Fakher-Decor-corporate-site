@@ -12,7 +12,7 @@
     <a href="index3.html" class="brand-link">
       <img src="/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">پنل مدیریت</span>
+      <span class="brand-text font-weight-light">{{ __('messages.admin_panel') }}</span>
     </a>
 
     <!-- Sidebar -->
@@ -37,41 +37,48 @@
               <a href="#" class="nav-link active">
                 <i class="nav-icon fa fa-dashboard"></i>
                 <p>
-                داشبورد
+                {{ __('messages.dashboard') }}
                   <i class="right fa fa-angle-left"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="{{route('admin_project.index')}}" class="nav-link @if (Request::path()=='admin_project' || Request::path()=='admin_project/create' ) active @endif ">
-                    <i class="fa fa-box"></i>
-                    <p>محصولات</p>
+                    <!-- <i class="fa fa-box"></i> -->
+                    <!-- <i class="fa fa-folder"></i> -->
+                    <!-- <i class="fa fa-cubes"></i> آیکون مربوط به {{ __('messages.projects') }} -->
+                    <i class="fa fa-building"></i> <!-- آیکون ساختمان برای {{ __('messages.projects') }}ی عمرانی -->
+
+
+                    <p>{{ __('messages.projects') }}</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{route('admin_blog.index')}}" class="nav-link @if (Request::path()=='admin_blog' || Request::path()=='admin_blog/create' ) active @endif">
-                    <i class="fa fa-file-text"></i>
-                    <p>مقالات</p>
+                    <!-- <i class="fa fa-file-text"></i> -->
+                    <i class="fa fa-file-alt"></i> <!-- آیکون مربوط به {{ __('messages.articles') }} یا اسناد -->
+
+                    <p>{{ __('messages.articles') }}</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{route('admin_comment.index')}}" class="nav-link @if (Request::path()=='admin_comment'  ) active @endif">
                     <i class="fa fa-comments"></i>
-                    <p>کامنت ها </p>
+                    <p>{{ __('messages.user_reviews') }} </p>
                   </a>
                 </li>
 
                 <li class="nav-item">
                   <a href="{{route('admin_blogCategory.index')}}" class="nav-link @if (Request::path()=='admin_blogCategory' || Request::path()=='admin_blogCategory/create' ) active @endif">
                     <i class="fa fa-list"></i>
-                    <p>دسته بندی مقالات</p>
+                    <p>{{ __('messages.categories') }} {{ __('messages.articles') }}</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{route('admin')}}" class="nav-link @if (Request::path()=='admin' || Request::path()=='user/create' ) active @endif
                   ">
                     <i class="fa fa-users"></i>
-                    <p>کاربران</p>
+                    <p>{{ __('messages.users') }}</p>
                   </a>
                 </li>
               </ul>
@@ -80,10 +87,11 @@
               <a href="{{route('massage')}}" class="nav-link @if (Request::path()=='admin/massage' ) active @endif ">
                 <i class="fa fa-comment"></i>
                 <p>
-                  پیغام ها
+                  {{ __('messages.messages') }}
                 </p>
               </a>
-            </li> <!--
+            </li>
+             <!--
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fa fa-pie-chart"></i>

@@ -5,7 +5,7 @@
         @include('admin.layaut.errors')
     <div class="card ">
               <div class="card-header">
-                <h3 class="card-title">ایجاد کاربر</h3>
+                <h3 class="card-title">{{ __('messages.create_user') }}</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -60,7 +60,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-info">ایجاد کاربر</button>
+                  <button type="submit" class="btn btn-info">{{ __('messages.create_user') }}</button>
                   <a href="{{route('admin')}}" class="btn btn-default float-left">لغو<a/>
                 </div>
                 <!-- /.card-footer -->

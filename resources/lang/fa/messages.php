@@ -77,6 +77,32 @@ return [
 'financial_value' => 'ارزش مالی',
 'project_location' => 'محل پروژه',
 'foundation_area' => 'زیربنا',
+'edit' => 'ویرایش',
+'delete' => 'حذف',
+'create_user' => 'ایجاد کاربر',
+'dashboard' => 'داشبورد',
+'articles' => 'مقالات',
+'messages' => 'پیغام ها',
+'categories' => 'دسته بندی',
+'approved' => 'تائید شده',
+'unapproved' => 'تائید نشده',
+'approve' => 'تائید ',
+'users' => 'کاربران',
+'admin_panel' => 'پنل مدیریت',
+'project_engineer' => 'مهندس پروژه',
+'engineer_specialty' => 'تخصص مهندس',
+
+'image_gallery' => 'گالری تصاویر',
+'create_project' => 'ایجاد پروژه',
+'create_article' => 'ایجاد مقاله',
+'create_category' => 'ایجاد دسته بندی',
+'actions' => 'اقدامات',
+'upload_new_image' => 'ثبت تصویر جدید',
+'images' => 'تصاویر',
+'title' => 'عنوان',
+'content' => 'متن',
+'date_sent' => 'تاریخ ارسال',
+
 
 
 

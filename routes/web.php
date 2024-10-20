@@ -14,13 +14,9 @@ Route::group(
         'prefix' => LaravelLocalization::setLocale(),
     ],
     function () {
-        Route::get('/', function () {
-            return view('welcome');
-        });
 
-        Route::get('/about', function () {
-            return view('about-us');
-        });
+
+
         Route::get('/services',[HomeController::class,'Services'])->name('services');
         Route::get('/contact',[HomeController::class,'contact'])->name('contact');
         Route::get('/blog',[HomeController::class,'blog_list'])->name('blogs');

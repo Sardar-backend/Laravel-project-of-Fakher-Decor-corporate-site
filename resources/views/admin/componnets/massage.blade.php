@@ -5,7 +5,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header d-flex">
-                <h3 class="card-title">فهرست پیغام ها</h3>
+                <h3 class="card-title">فهرست {{ __('messages.messages') }}</h3>
 
                 <div class="card-tools d-flex"><form action="">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -18,7 +18,7 @@
                     </div>
                     </form>
                     <div class="btn-group-sm mr-2"></div>
-                    <a href="{{ route('create') }}" class="btn btn-info">ایجاد کاربر</a>
+                    <a href="{{ route('create') }}" class="btn btn-info">{{ __('messages.create_user') }}</a>
                     </div>
                 </div>
 
@@ -27,10 +27,10 @@
                 <table class="table table-hover">
                   <tbody><tr>
 
-                    <th>عنوان</th>
-                    <th>پیغام</th>
-                    <th>ایمیل</th>
-                    <th>تاریخ ارسال</th>
+                    <th>{{ __('messages.message_subject') }}</th>
+                    <th>{{ __('messages.message_text') }}</th>
+                    <th>{{ __('messages.email') }}</th>
+                    <th>{{ __('messages.date_sent') }} </th>
                   </tr>
                   @foreach ($all as $user)
                   <tr>
@@ -38,7 +38,17 @@
                     <td>{{$user->subject}}</td>
                     <td>{{$user->content}}</td>
                     <td>{{$user->email}}</td>
-                    <td>{{jdate($user->failed_at)->format('%Y %m %d ')}}</td>
+
+                    <td>
+                    @if (LaravelLocalization::getCurrentLocale() == 'en')
+
+                    {{Carbon\Carbon::parse($user->failed_at)->format('Y-m-d')}}
+                    @else
+                        {{jdate($user->failed_at)->format('%B %d، %Y')}}
+                    @endif
+
+
+                </td>
 
                   </tr>
                   @endforeach

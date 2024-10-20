@@ -5,7 +5,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header d-flex">
-                <h3 class="card-title">فهرست کاربران</h3>
+                <h3 class="card-title">فهرست {{ __('messages.users') }}</h3>
 
                 <div class="card-tools d-flex"><form action="">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -18,7 +18,7 @@
                     </div>
                     </form>
                     <div class="btn-group-sm mr-2"></div>
-                    <a href="{{ route('create') }}" class="btn btn-info">ایجاد کاربر</a>
+                    <a href="{{ route('create') }}" class="btn btn-info">{{ __('messages.create_user') }}</a>
                     </div>
                 </div>
 
@@ -38,11 +38,11 @@
                     <td>{{$user->created_at}}</td>
 
                     <td>{{$user->email}}</td>
-                    <td class="d-flex"><a href="{{route('edit_post', ['id'=>$user->id])}}"><button class="btn btn-primary"><span class="badge badge-primary">ویرایش</span></button></a>
+                    <td class="d-flex"><a href="{{route('edit_post', ['id'=>$user->id])}}"><button class="btn btn-primary"><span class="badge badge-primary">{{ __('messages.edit') }}</span></button></a>
                     <form action="{{route('destroy_user', ['id'=>$user->id])}}" method="post" class="mr-1">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger"><span class="badge badge-danger">حذف</span></button>
+                        <button type="submit" class="btn btn-danger"><span class="badge badge-danger">{{ __('messages.delete') }}</span></button>
                     </form></td>
                   </tr>
                   @endforeach

@@ -41,8 +41,8 @@ class admin_project extends Controller
 
         // project::create($data);
         // return redirect()->route('admin');
-        $categories=projectcategory::all();
-        return view('admin.componnets.create_p',compact('categories'));
+        // $categories=projectcategory::all();
+        return view('admin.componnets.create_p');
 
 
 }
@@ -112,8 +112,8 @@ class admin_project extends Controller
     {
 
         $cat=project::find($id);
-        $categories =projectcategory::all();
-        return view('admin/componnets/edit_p', compact('cat','categories'));
+        // $categories =projectcategory::all();
+        return view('admin/componnets/edit_p', compact('cat'));
     }
 
     /**

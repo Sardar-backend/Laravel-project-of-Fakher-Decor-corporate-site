@@ -294,7 +294,7 @@
         </div>
     </section>
 
-    <section class="my-20 px-4">
+    <!-- <section class="my-20 px-4">
         <div class="container mx-auto max-w-screen-xl">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-YekanBakh-ExtraBlack"> {{ __('messages.user_reviews') }}</h2>
@@ -370,7 +370,7 @@
               </div>
         </div>
 
-    </section>
+    </section> -->
 
     <section class="my-20 px-4">
         <div class="container mx-auto max-w-screen-xl">

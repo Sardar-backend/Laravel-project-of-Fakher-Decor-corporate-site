@@ -32,6 +32,9 @@
             width: 50%;
             height: 50%;
         } */
+         body{
+            background-color: whitesmoke !important;
+         }
         .cca{
             justify-content: center !important;
             align-items: center !important;
@@ -64,13 +67,13 @@ to get the desired effect
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">داشبورد </h1>
+            <h1 class="m-0 text-dark">{{ __('messages.dashboard') }} </h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-left">
+            <!-- <ol class="breadcrumb float-sm-left">
               <li class="breadcrumb-item"><a href="#">خانه</a></li>
-              <li class="breadcrumb-item active">داشبورد </li>
-            </ol>
+              <li class="breadcrumb-item active">{{ __('messages.dashboard') }} </li>
+            </ol> -->
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->

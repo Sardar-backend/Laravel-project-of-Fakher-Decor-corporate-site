@@ -88,7 +88,7 @@
                         </div>
                         <div class="p-4 leading-8 w-full">
                             <a href="{{route('blog_single',['id'=>$blog->id])}}"><h3 class="font-YekanBakh-Bold mt-6 mb-2 text-slate-800 text-sm">جذاب ترین ایده دکوراسیون</h3></a>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ..</p>
+                            <p>{{substr(strip_tags($blog->content),0,211)}}...</p>
                             <a href="{{route('blog_single',['id'=>$blog->id])}}" class="text-yellow-400"> {{ __('messages.view_more') }} »</a>
                         </div>
                     </div>

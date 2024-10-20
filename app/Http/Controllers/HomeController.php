@@ -11,6 +11,7 @@ use App\Models\project;
 use App\Models\User;
 // use Egulias\EmailValidator\Warning\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 

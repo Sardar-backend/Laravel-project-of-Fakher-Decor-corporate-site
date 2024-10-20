@@ -40,14 +40,16 @@ class admin_blog extends Controller
         $data = $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'content' => ['required','string'],
-            'image' => ['required'],
+            'image'  => ['required'],
             'categories'=> ['required','array'],
         ]);
+        // dd(vars: $data);
         $data['image']=Storage::disk('public')->putFile( 'files', request()->file('image'));
 
         // dd($data);
         $obj=blog::create($data);
-        $obj->category()->sync($data['categories']);
+        // dd($obj);
+        $obj->categories()->sync($data['categories']);
         return redirect()->route('admin_blog.index')->with('success', 'Blog created successfully.');
     }
 
@@ -84,9 +86,9 @@ class admin_blog extends Controller
         $blog=blog::find($id);
         $obj=$blog->update($data);
         $obj = $blog->fresh();
-        $obj->category()->detach();
+        $obj->categories()->detach();
         // dd($obj->id);
-        $obj->category()->sync($data['categories']);
+        $obj->categories()->sync($data['categories']);
         return redirect()->route('admin_blog.index');
     }
 

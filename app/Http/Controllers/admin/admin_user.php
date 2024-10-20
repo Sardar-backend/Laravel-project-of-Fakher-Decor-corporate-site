@@ -58,7 +58,7 @@ class admin_user extends Controller
             'password.min' => 'رمز عبور حداقل باید 8 کاراکتر باشد.',
             'password.confirmed' => 'رمز عبور با تأییدیه مطابقت ندارد.',
         ]);
-
+        // dd($data);
 
         // $f=Storage::disk('public')->putFile( 'ProfilePhoto', request()->file('image'));
         // $data['image']=$f;

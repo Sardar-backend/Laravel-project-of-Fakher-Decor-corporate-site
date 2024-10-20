@@ -219,7 +219,8 @@
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                                 @if (LaravelLocalization::getCurrentLocale() == 'en')
-                                    {{$project->updated_at}}
+
+                                {{Carbon\Carbon::parse($project->updated_at)->format('Y-m-d')}}
                                 @else
                                     {{jdate($project->updated_at)->format('%B %d، %Y')}}
                                 @endif
@@ -244,24 +245,32 @@
                           <!-- row 2 -->
                           <tr>
                             <th>{{ __('messages.area') }}:</th>
-                            <td>3000 هزار متر</td>
+                            <td>{{$project->area}}</td>
                           </tr>
                           <!-- row 3 -->
                           <tr>
                             <th> {{ __('messages.start_date') }}:</th>
-                            <td>15 مرداد 1402</td>
+                            <td>
+                                @if (LaravelLocalization::getCurrentLocale() == 'en')
+
+                                {{Carbon\Carbon::parse($project->start_date)->format('Y-m-d')}}
+                                @else
+                                    {{jdate($project->start_date)->format('%B %d، %Y')}}
+                                @endif
+
+                            </td>
                           </tr>
                           <tr>
                             <th>{{ __('messages.foundation_area') }}:</th>
-                            <td>3000</td>
+                            <td>{{$project->infrastructure}}</td>
                           </tr>
                           <tr>
                             <th> {{ __('messages.financial_value') }}:</th>
-                            <td>1 میلیارد</td>
+                            <td>{{$project->FinancialValue}}</td>
                           </tr>
                           <tr>
                             <th> {{ __('messages.project_location') }}:</th>
-                            <td>تهران</td>
+                            <td>{{$project->location}}</td>
                           </tr>
                         </tbody>
                       </table>

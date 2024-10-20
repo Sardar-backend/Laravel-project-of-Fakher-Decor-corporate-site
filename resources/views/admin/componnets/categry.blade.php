@@ -26,10 +26,10 @@
               <div class="card-body table-responsive p-0">
                 <table class="table table-hover">
                   <tbody><tr>
-                    <th>آیدی</th>
+                    <th>{{ __('messages.id') }}</th>
                     <th>نام</th>
                     <th>دسته بندی والد</th>
-                    <th>اقدامات</th>
+                    <th>{{ __('MESSAGES.ACTIONS') }}</th>
 
                   </tr>
                   @foreach ($category as $user)
@@ -38,11 +38,11 @@
                     <td>{{$user->name}}</td>
                     <td>{{$user->parent}}</td>
 
-                    <td class="d-flex"><a href="{{route('admin_category.show', ['admin_category'=>$user->id])}}"><button class="btn btn-primary"><span class="badge badge-primary">ویرایش</span></button></a>
+                    <td class="d-flex"><a href="{{route('admin_category.show', ['admin_category'=>$user->id])}}"><button class="btn btn-primary"><span class="badge badge-primary">{{ __('messages.edit') }}</span></button></a>
                     <form action="{{route('admin_category.destroy', ['admin_category'=>$user->id])}}" method="post" class="mr-1">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger"><span class="badge badge-danger">حذف</span></button>
+                        <button type="submit" class="btn btn-danger"><span class="badge badge-danger">{{ __('messages.delete') }}</span></button>
                     </form></td>
                   </tr>
                   @endforeach

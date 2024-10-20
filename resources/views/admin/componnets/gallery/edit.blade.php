@@ -2,7 +2,7 @@
     @slot('breadcrumb')
         <li class="breadcrumb-item"><a href="/admin">پنل مدیریت</a></li>
         <li class="breadcrumb-item">{{ $product->title }}</li>
-        <li class="breadcrumb-item active">ویرایش تصویر</li>
+        <li class="breadcrumb-item active">{{ __('messages.edit') }} تصویر</li>
     @endslot
 
     @slot('script')
@@ -29,7 +29,7 @@
             @include('admin.layouts.errors')
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">ویرایش تصویر</h3>
+                    <h3 class="card-title">{{ __('messages.edit') }} تصویر</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
@@ -65,7 +65,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-info">ویرایش تصاویر</button>
+                        <button type="submit" class="btn btn-info">{{ __('messages.edit') }} تصاویر</button>
                         <a href="{{ route('admin.products.gallery.index' , ['product' => $product->id]) }}" class="btn btn-default float-left">لغو</a>
                     </div>
                     <!-- /.card-footer -->
