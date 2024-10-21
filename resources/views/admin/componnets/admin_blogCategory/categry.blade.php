@@ -27,8 +27,8 @@
                 <table class="table table-hover">
                   <tbody><tr>
                     <th>{{ __('messages.id') }}</th>
-                    <th>نام</th>
-                    <th>دسته بندی والد</th>
+                    <th>{{ __('messages.name') }}</th>
+                    <th>{{ __('messages.parent_category') }}</th>
                     <th>{{ __('messages.actions') }}</th>
 
                   </tr>

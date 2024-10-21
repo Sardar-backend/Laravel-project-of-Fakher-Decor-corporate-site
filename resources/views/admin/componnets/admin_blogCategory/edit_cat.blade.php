@@ -14,13 +14,13 @@
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">نام دسته بندی</label>
+                    <label for="inputEmail3" class="col-sm-2 control-label">{{ __('messages.category_name') }}</label>
                   <div class="col-sm-10">
                       <input type="text" name="name" class="form-control" id="inputEmail3" placeholder="نام کاربر را وارد کنید" value="{{$cat->name}}">
                   </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">دسته بندی والد</label>
+                    <label for="inputEmail3" class="col-sm-2 control-label">{{ __('messages.parent_category_name') }}</label>
                   <div class="col-sm-10">
                       <input type="text" name="parent" class="form-control" id="inputEmail3" placeholder="شماره را وارد کنید" value="0{{$cat->phonenumber}}">
                   </div>
@@ -28,7 +28,7 @@
 
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-info">ویرایش</button>
+                  <button type="submit" class="btn btn-info">{{ __('messages.edit') }}</button>
                   <a href="{{route('admin_blogCategory.index')}}" class="btn btn-default float-left">لغو<a/>
                 </div>
                 <!-- /.card-footer -->

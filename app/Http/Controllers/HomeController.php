@@ -13,6 +13,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
@@ -92,6 +93,17 @@ class HomeController extends Controller
             return redirect()->route('index'); // هدایت به صفحه اصلی اگر کاربر وارد شده باشد
         }
         return view('login');
+    }
+
+    public function download_post(){
+
+        $filePath = storage_path('app\public\files\MyResume-314[www.cvbuilder.me].pdf');
+        return response()->download($filePath ,'MyResume', [
+            'Content-Type' => 'application/pdf', // نوع محتوای فایل
+            'Cache-Control' => 'no-cache', // جلوگیری از کش شدن فایل
+
+    ]);
+
     }
 
     public function craete_comment(Request $request){

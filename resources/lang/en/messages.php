@@ -101,6 +101,14 @@ return [
 'content' => 'Content',
 'id' => 'ID',
 'date_sent' => 'Date Sent',
+'status' => 'Status',
+'parent_comment' => 'Parent Comment',
+'article_image' => 'Article Image',
+'parent_category' => 'Parent Category',
+'name' => 'Name',
+'membership_date' => 'Membership Date',
+'category_name' => 'Category Name',
+'parent_category_name' => 'Parent Category Name',
 
 
 

@@ -100,7 +100,7 @@
 
                             </div><br>
                             <span class="about-button">
-                                <a style="color: inherit;" class="main-btn" href="">{{ __('messages.download_resume') }}</a>
+                                <a style="color: inherit;" class="main-btn" href="/download">{{ __('messages.download_resume') }}</a>
                             </span>
                 </div></div>
             </div>

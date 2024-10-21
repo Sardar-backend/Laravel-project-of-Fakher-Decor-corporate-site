@@ -28,9 +28,9 @@
                 <table class="table table-hover">
                   <tbody><tr>
                     <th>{{ __('messages.id') }}</th>
-                    <th>نام کاربر</th>
+                    <th> {{ __('messages.username') }}</th>
                     <th>{{ __('messages.content') }}</th>
-                    <th>وضعیت</th>
+                    <th>{{ __('messages.status') }}</th>
                     <th>{{ __('messages.id') }} کامنت والد</th>
                     <th>{{ __('messages.actions') }}</th>
                   </tr>

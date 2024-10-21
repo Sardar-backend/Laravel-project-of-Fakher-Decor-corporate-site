@@ -13,23 +13,23 @@
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">عنوان مقاله</label>
+                    <label for="inputEmail3" class="col-sm-2 control-label"> {{ __('messages.title') }}</label>
                   <div class="col-sm-10">
                       <input type="text" name="title" class="form-control" id="inputEmail3" placeholder="عنوان مقاله را وارد کنید">
                   </div>
                   </div>
                   <div class="form-group">
                   <div class="col-sm-10">
-                  <label for="email">عکس مقاله  :</label>
+                  <label for="email"> {{ __('messages.article_image') }}  :</label>
                   <input name="image" accept="image/*" type="file" class="form-control"   ></div></div>
                   <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">متن مقاله</label>
+                    <label for="inputEmail3" class="col-sm-2 control-label">{{ __('messages.content') }} </label>
                   <div class="col-sm-10">
                   <textarea name="content"  class="form-control" placeholder="متن را وارد کنید" id="discription" cols="30" rows="10"></textarea>
                   </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">دسته بندی</label>
+                    <label for="inputEmail3" class="col-sm-2 control-label"> {{ __('messages.categories') }} </label>
                     <div class="col-sm-10">
                     <select  class="form-control" name="categories[]" id="categories" multiple>
                         @php
@@ -46,7 +46,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-info">ایجاد مقاله</button>
+                  <button type="submit" class="btn btn-info"> {{ __('messages.create_article') }}  </button>
                   <a href="{{route('admin_blog.index')}}" class="btn btn-default float-left">لغو</>
                 </div>
                 <!-- /.card-footer -->

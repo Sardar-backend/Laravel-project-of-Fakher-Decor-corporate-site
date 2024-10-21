@@ -39,3 +39,4 @@ Route::post('/contact',[HomeController::class,'contact_post'])->name('contact_po
 Route::post('/register',[HomeController::class,'register_post'])->name('register_post');
 Route::post('/craete_comment',[HomeController::class,'craete_comment'])->name('craete_comment');
 Route::post('/newsletter',[HomeController::class,'newsletter'])->name('newsletter_post');
+Route::get('/download',[HomeController::class,'download_post'])->name('download_post');

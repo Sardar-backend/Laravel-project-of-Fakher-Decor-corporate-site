@@ -26,10 +26,10 @@
               <div class="card-body table-responsive p-0">
                 <table class="table table-hover">
                   <tbody><tr>
-                    <th>آیدی</th>
-                    <th>نام</th>
-                    <th>تاریخ عضویت</th>
-                    <th>ایمیل</th>
+                    <th> {{ __('messages.id') }}</th>
+                    <th>{{ __('messages.name') }}</th>
+                    <th> {{ __('messages.membership_date') }}</th>
+                    <th>{{ __('messages.email') }}</th>
                   </tr>
                   @foreach ($users as $user)
                   <tr>
