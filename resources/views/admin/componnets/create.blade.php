@@ -13,28 +13,28 @@
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">نام کاربر</label>
+                    <label for="inputEmail3" class="col-sm-2 control-label"> {{ __('messages.username') }}</label>
                   <div class="col-sm-10">
                       <input type="text" name="name" class="form-control" id="inputEmail3" placeholder="نام کاربر را وارد کنید">
                   </div>
                   </div>
 
                   <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">ایمیل</label>
+                    <label for="inputEmail3" class="col-sm-2 control-label">{{ __('messages.email') }}</label>
 
                     <div class="col-sm-10">
                       <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="ایمیل را وارد کنید">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">پسورد</label>
+                    <label for="inputEmail3" class="col-sm-2 control-label">{{ __('messages.password') }}</label>
 
                     <div class="col-sm-10">
                       <input type="password" name="password" class="form-control" id="inputEmail3" placeholder="پسورد را وارد کنید">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">تکرار پسورد</label>
+                    <label for="inputEmail3" class="col-sm-2 control-label"> {{ __('messages.confirm_password') }}</label>
 
                     <div class="col-sm-10">
                       <input type="password" name="password_confirmation" class="form-control" id="inputEmail3" placeholder="پسورد را وارد کنید">
@@ -53,7 +53,7 @@
                     <div class="col-sm-offset-2 col-sm-10">
                       <div class="form-check">
                         <input id="exampleCheck2" onclick="let sds= document.querySelector('exampleCheck2').value == 1 " name="is_superuser" type="checkbox" value="0" class="form-check-input" >
-                        <label class="form-check-label" for="exampleCheck2">کاربر کارمند</label>
+                        <label class="form-check-label" for="exampleCheck2">{{ __('messages.user_employee') }} </label>
                       </div>
                     </div>
                   </div>
@@ -61,7 +61,7 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-info">{{ __('messages.create_user') }}</button>
-                  <a href="{{route('admin')}}" class="btn btn-default float-left">لغو<a/>
+                  <a href="{{route('admin')}}" class="btn btn-default float-left">{{ __('messages.cancel') }}<a/>
                 </div>
                 <!-- /.card-footer -->
               </form>

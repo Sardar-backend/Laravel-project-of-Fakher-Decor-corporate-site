@@ -50,7 +50,7 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-info">{{ __('messages.edit') }}</button>
-                  <a href="{{route('admin_blog.index')}}" class="btn btn-default float-left">لغو<a/>
+                  <a href="{{route('admin_blog.index')}}" class="btn btn-default float-left">{{ __('messages.cancel') }}<a/>
                 </div>
                 <!-- /.card-footer -->
               </form>

@@ -47,7 +47,7 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-info"> {{ __('messages.create_article') }}  </button>
-                  <a href="{{route('admin_blog.index')}}" class="btn btn-default float-left">لغو</>
+                  <a href="{{route('admin_blog.index')}}" class="btn btn-default float-left">{{ __('messages.cancel') }}</>
                 </div>
                 <!-- /.card-footer -->
               </form>

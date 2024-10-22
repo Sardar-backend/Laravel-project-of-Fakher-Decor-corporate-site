@@ -218,10 +218,10 @@
                                 </span>
                             </div>
                         </div>
-                        <img class="rounded-2xl" src="../assets/images/4.jpg" alt="">
+                        <img class="rounded-2xl" src="/storage/{{$blog->image}}" alt="">
                         <p class="mt-4">{!! nl2br(e($blog->content)) !!}</p>
 
-                        <div class="mt-4">
+                        <div class="mt-4 y">
 
 
 
@@ -235,18 +235,19 @@
                                                                             </div>
                                                                             <div class="col-9 col-sm-10 col-md-11 pr-0 pr-md-2 pr-xl-0 pt-0 pt-lg-1">
                                                                                 <div class="name">{{$comment->user->name}}</div>
-                                                                                <div class="date">ارسال شده در
+                                                                                <div class="date">  {{ __('messages.sent_at') }}
 
                                                                                 @if (LaravelLocalization::getCurrentLocale() == 'en')
                                                                                     {{Carbon\Carbon::parse($comment->failed_at)->ago()}}
                                                                                 @else
                                                                                     {{jdate($comment->failed_at)->ago()}}
                                                                                 @endif
+
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-12">
                                                                                 <p>{{$comment->content}}</p>
-                                                                                <span onclick="let parent_id = document.querySelector('.parent_id').value={{$comment->id}};" class="reply"><img  src="assets/images/comment-reply.png" alt=""> ارسال پاسخ</span>
+                                                                                <span onclick="let parent_id = document.querySelector('.parent_id').value={{$comment->id}};" class="reply"><img  src="assets/images/comment-reply.png" alt=""> {{ __('messages.submit_response') }} </span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -270,7 +271,7 @@
                                                                                         </div>
                                                                                         <div class="col-9 col-sm-10 col-md-11 pr-0 pr-md-2 pr-xl-0 pt-0 pt-lg-1">
                                                                                             <div class="name">{{$child->user->name}}</div>
-                                                                                            <div class="date">ارسال شده در
+                                                                                            <div class="date">  {{ __('messages.sent_at') }}
                                                                                             @if (LaravelLocalization::getCurrentLocale() == 'en')
                                                                                     {{Carbon\Carbon::parse($child->failed_at)->ago()}}
                                                                                 @else
@@ -309,8 +310,8 @@
                                 @csrf
                                 <input type="hidden" class="parent_id"  name="parent_id" value="0"  id="">
                                 <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-                                <textarea name="content" class="textarea textarea-bordered w-full h-36 rounded-2xl" placeholder="نظر خود را بنویسید..."></textarea>
-                                <button type="submit" class="btn btn-primary rounded-2xl">ارسال نظر</button>
+                                <textarea name="content" class="textarea textarea-bordered w-full h-36 rounded-2xl" placeholder=" {{ __('messages.write_your_comment') }}"></textarea>
+                                <button type="submit" class="btn btn-primary rounded-2xl"> {{ __('messages.submit_comment') }}</button>
                             </form>
                             @endif
 

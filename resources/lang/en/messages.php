@@ -109,6 +109,14 @@ return [
 'membership_date' => 'Membership Date',
 'category_name' => 'Category Name',
 'parent_category_name' => 'Parent Category Name',
+'submit_response' => 'Submit Response',
+'sent_at' => 'Sent at',
+'submit_comment' => 'Submit comment',
+'write_your_comment' => 'Write your comment ...',
+'user_employee' => 'User Employee',
+'cancel' => 'Cancel',
+'about_project' => 'About the project',
+'project_details' => 'Project details',
 
 
 

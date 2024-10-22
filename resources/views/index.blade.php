@@ -75,6 +75,22 @@
         .menu-content a:hover {
             background-color: #f0f0f0;
         }
+        .mt-2{
+            text-align: center;
+        }
+        @if (LaravelLocalization::getCurrentLocale() == 'en')
+
+
+        /* body , h2 , h3 , h5  , p , P , span {
+            text-align: center ;
+            font-family: 'Roboto', sans-serif !important;
+            direction: rtl !important;
+        } */
+        .y{
+            direction: ltr !important;
+        }
+        @endif
+
     </style>
 </head>
 <body class="font-YekanBakh-Regular text-sm bg-slate-50">
@@ -251,7 +267,7 @@
                     <h2 class="text-3xl text-white font-YekanBakh-ExtraBlack"> {{ __('messages.projects') }}</h2>
                     <p class="text-white mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
                 </div>
-                <div class="swiper project">
+                <div class="swiper project y">
                     <div class="swiper-wrapper">
                         @foreach ($projects as $project )
 
@@ -279,16 +295,16 @@
             <h2 class="text-3xl font-YekanBakh-ExtraBlack">{{ __('messages.about_company') }} </h2>
             <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
         </div>
-        <div class="container mx-auto max-w-screen-xl">
+        <div  class="container mx-auto max-w-screen-xl y">
             <div class="grid grid-cols-12 gap-4">
                 <div class="col-span-12 md:col-span-4">
                     <img class="rounded-2xl" src="../assets/images/54.jpg" alt="">
                 </div>
                 <div class="col-span-12 md:col-span-8 leading-8">
-                    <p class="mb-4">
+                    <p  class="mb-4">
                     {{ __('messages.company_intro') }}
                     </p>
-                    <a href="{{route('about')}}" class="bg-yellow-400 py-4 px-8 rounded-2xl">{{ __('messages.read_more') }}</a>
+                    <a href="{{route('about')}}"  class="bg-yellow-400 py-4 px-8 rounded-2xl">{{ __('messages.read_more') }}</a>
                 </div>
             </div>
         </div>
@@ -378,7 +394,7 @@
                 <h2 class="text-3xl font-YekanBakh-ExtraBlack"> {{ __('messages.news_articles') }}</h2>
                 <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 y">
                 @foreach ($blogs as $blog)
 
                 <div class="bg-white rounded-2xl overflow-hidden">

@@ -74,9 +74,14 @@
         }
 
         @if (LaravelLocalization::getCurrentLocale() == 'en')
-        body , h2 , h3 , h5  , p , P , span {
-            font-family: 'Roboto', sans-serif !important;
+        .y{
+            direction: ltr !important;
         }
+        /* body , h2 , h3 , h5  , p , P , span {
+            font-family: 'Roboto', sans-serif !important;
+            direction: rtl !important;
+        } */
+
         @endif
 
         .menu-content a:hover {

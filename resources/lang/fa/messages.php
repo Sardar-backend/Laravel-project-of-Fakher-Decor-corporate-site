@@ -57,7 +57,7 @@ return [
     'register' => 'ثبت نام',
     'confirm_password' => 'تائید پسورد',
     'already_registered' => 'قبلا ثبت نام کرده‌اید؟ وارد شوید',
-
+'submit_response' => 'ارسال پاسخ',
     'services_offered' => 'چه خدماتی توسط فاخر دکور ارائه می‌شود؟',
     'decor_services' => 'فاخر دکور خدمات طراحی و اجرای دکوراسیون داخلی شامل مشاوره، طراحی سه‌بعدی، انتخاب مواد و اجرای پروژه‌های دکوراسیون اماکن مسکونی، تجاری، و اداری را ارائه می‌دهد.',
     'how_to_book_consultation' => 'چگونه می‌توانم یک مشاوره دکوراسیون داخلی رزرو کنم؟',
@@ -109,6 +109,13 @@ return [
     'membership_date' => 'تاریخ عضویت',
 'category_name' => 'نام دسته بندی',
 'parent_category_name' => 'نام دسته بندی والد',
+'sent_at' => 'ارسال شده در',
+'submit_comment' => 'ارسال نظر',
+'write_your_comment' => 'نظر خود را بنویسید ...',
+'user_employee' => 'کاربر کارمند',
+'cancel' => 'لغو',
+'about_project' => 'درباره پروژه',
+'project_details' => 'جزئیات پروژه',
 
 
 

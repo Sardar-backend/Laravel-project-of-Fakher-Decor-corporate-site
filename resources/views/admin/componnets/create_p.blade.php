@@ -91,7 +91,7 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-info">ایجاد محصول</button>
-                  <a href="{{route('admin_project.index')}}" class="btn btn-default float-left">لغو<a/>
+                  <a href="{{route('admin_project.index')}}" class="btn btn-default float-left">{{ __('messages.cancel') }}<a/>
                 </div>
                 <!-- /.card-footer -->
               </form>

@@ -21,7 +21,7 @@
     <section class="mb-20 px-4">
         <div class="container mx-auto max-w-screen-xl">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div>
+              <div class="y">
                 <h3 class="text-xl font-YekanBakh-ExtraBold mb-2"> {{ __('messages.contact_methods') }}</h3>
                 <div class="bg-white p-4 rounded-2xl flex items-center gap-4 my-4">
                   <div class="bg-yellow-400 p-2 rounded-xl">
@@ -60,7 +60,7 @@
                   </div>
                 </div>
               </div>
-              <div>
+              <div class="y">
                 <h3 class="text-xl font-YekanBakh-ExtraBold mb-2">{{ __('messages.contact_us') }}</h3>
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -85,7 +85,7 @@
                   <label class="label">
                     <span class="label-text-alt">{{ __('messages.message_text') }}</span>
                   </label>
-                  <textarea name="content" class="textarea textarea-bordered h-24" placeholder="متن پیام را بنویسید..."></textarea>
+                  <textarea name="content" class="textarea textarea-bordered h-24" ></textarea>
                   <button type="submit" class="btn btn-primary my-3">{{ __('messages.submit_message') }}</button>
                 </div></form>
               </div>

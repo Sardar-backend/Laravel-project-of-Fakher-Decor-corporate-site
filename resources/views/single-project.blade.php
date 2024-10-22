@@ -77,11 +77,35 @@
         body , h2 , h3 , h5  , p , P , span {
             font-family: 'Roboto', sans-serif !important;
         }
+        .y{
+            direction: ltr !important;
+        }
+        tr {
+            display: flex;
+
+            flex-direction: row-reverse;
+        }
+        th, td {
+            width: 50%;
+            text-align: left;
+            padding: 10px;
+            box-sizing: border-box;
+            padding-left: 3rem !important;
+        }
+
+         th {
+            order: 2;
+        }
+
+         td {
+            order: 1;
+        }
         @endif
 
         .menu-content a:hover {
             background-color: #f0f0f0;
         }
+
     </style>
 </head>
 <body class="font-YekanBakh-Regular text-sm bg-slate-50">
@@ -193,11 +217,11 @@
 <div class="bg-[url('/assets/images/ber.jpg')] bg-no-repeat h-40 md:h-64 relative">
         <div class="flex justify-center">
             <div class="text-sm absolute top-1/4 md:top-1/2">
-                <h2 class="text-3xl font-YekanBakh-ExtraBlack my-4">جزئیات پروژه</h2>
+                <h2 class="text-3xl font-YekanBakh-ExtraBlack my-4">{{ __('messages.project_details') }} </h2>
                 <div class="breadcrumbs flex justify-center">
                     <ul class="">
                       <li><a>{{ __('messages.Home') }}</a></li>
-                      <li>جزئیات پروژه</li>
+                      <li>{{ __('messages.project_details') }}</li>
                     </ul>
                 </div>
               </div>
@@ -211,7 +235,7 @@
             <div class="bg-white rounded-2xl p-4">
                 <div class="grid grid-cols-12 gap-4 lg:gap-8 mb-20">
                   <div class="col-span-12 md:col-span-5">
-                    <div class="border-r-4 bg-slate-100 border-yellow-400 mb-4 rounded-2xl p-4">
+                    <div class="border-r-4 bg-slate-100 border-yellow-400 mb-4 rounded-2xl y p-4">
                       <h1 class="mb-2 text-base font-YekanBakh-Bold">{{$project->name}}</h1>
                       <div class="flex items-center gap-4 text-xs">
                           <span class="flex items-center gap-1">
@@ -219,7 +243,6 @@
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                                 @if (LaravelLocalization::getCurrentLocale() == 'en')
-
                                 {{Carbon\Carbon::parse($project->updated_at)->format('Y-m-d')}}
                                 @else
                                     {{jdate($project->updated_at)->format('%B %d، %Y')}}
@@ -236,9 +259,9 @@
                     <div class="overflow-x-auto">
                       <table class="table table-zebra">
 
-                        <tbody>
+                        <tbody class="y">
                           <!-- row 1 -->
-                          <tr>
+                          <tr >
                             <th> {{ __('messages.project_name') }}:</th>
                             <td>{{$project->name}}</td>
                           </tr>
@@ -275,18 +298,18 @@
                         </tbody>
                       </table>
                     </div>
-                    <div class="mt-4 rounded-2xl p-4 bg-slate-100">
-                      <h3 class="text-xl text-center font-YekanBakh-ExtraBold mb-2">مهندس پروژه:</h3>
+                    <div class="mt-4 rounded-2xl p-4 bg-slate-100 b">
+                      <h3 class="text-xl text-center font-YekanBakh-ExtraBold mb-2"> {{ __('messages.project_engineer') }}:</h3>
 
                       <div class="flex justify-center items-center mb-2">
                         <div class="avatar">
                             <div class="w-24 rounded-full">
-                              <img src="../assets/images/avatar-2.jpg" />
+                              <img src="/storage/{{$project->EngineerPhoto}}" />
                             </div>
                           </div>
                           <div class="leading-8 mr-2">
-                            <h3 class="font-YekanBakh-Bold text-slate-800 text-sm">مهندس صحرا علی بیگی</h3>
-                            <p>مهندسی عمران</p>
+                            <h3 class="font-YekanBakh-Bold text-slate-800 text-sm">   {{$project->engineer}}</h3>
+                            <p> {{$project->EngineerSpecialty}}</p>
                           </div>
                     </div>
                     </div>
@@ -320,10 +343,10 @@
                 </div>
                 <section class="px-4">
                   <div class="text-center mb-10">
-                      <h2 class="text-3xl font-YekanBakh-ExtraBlack">درباره پروژه</h2>
+                      <h2 class="text-3xl font-YekanBakh-ExtraBlack">{{ __('messages.about_project') }} </h2>
                   </div>
 
-                <p class="mb-4 leading-8">{!! nl2br(e($project->about)) !!}</p>
+                <p class="mb-4 y leading-8">{!! nl2br(e($project->about)) !!}</p>
               </section>
             </div>
         </div>
