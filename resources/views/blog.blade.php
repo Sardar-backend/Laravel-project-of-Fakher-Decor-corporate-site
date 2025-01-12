@@ -79,15 +79,15 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
                     @foreach ($blogs as $blog )
 
-                    <div class="bg-white rounded-2xl overflow-hidden">
-                        <div class="relative">
-                            <div class="flex justify-center">
-                                <a href="blog.html" class="absolute -bottom-4 bg-white p-2 rounded-lg shadow-lg"> {{ __('messages.category') }}: {{$blog->categories()->first()->name}}</a>
+                    <div class="bg-white rounded-2xl overflow-hidden y">
+                        <div class="relative y">
+                            <div class="flex justify-center y">
+                                <a href="" class="absolute -bottom-4 bg-white p-2 rounded-lg shadow-lg"> {{ __('messages.category') }}: {{$blog->categories()->first()->name}}</a>
                             </div>
                             <a href="{{route('blog_single',['id'=>$blog->id])}}"><img src="/storage/{{$blog->image}}" alt=""></a>
                         </div>
                         <div class="p-4 leading-8 w-full">
-                            <a href="{{route('blog_single',['id'=>$blog->id])}}"><h3 class="font-YekanBakh-Bold mt-6 mb-2 text-slate-800 text-sm">جذاب ترین ایده دکوراسیون</h3></a>
+                            <a href="{{route('blog_single',['id'=>$blog->id])}}"><h3 class="font-YekanBakh-Bold mt-6 mb-2 text-slate-800 text-sm">{{$blog->title}}</h3></a>
                             <p>{{substr(strip_tags($blog->content),0,211)}}...</p>
                             <a href="{{route('blog_single',['id'=>$blog->id])}}" class="text-yellow-400"> {{ __('messages.view_more') }} »</a>
                         </div>

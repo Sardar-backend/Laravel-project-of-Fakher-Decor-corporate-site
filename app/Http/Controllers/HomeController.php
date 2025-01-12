@@ -10,6 +10,7 @@ use App\Models\newsletter;
 use App\Models\project;
 use App\Models\User;
 // use Egulias\EmailValidator\Warning\Comment;
+use Artesaos\SEOTools\SEOTools;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -18,29 +19,73 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
 {
+
     public function index(){
+        $this->seo()->setTitle( __('messages.home_page') )
+        ->setDescription('به صفحه اصلی سایت خوش آمدید')
+        ->opengraph()->setTitle(__('messages.home_page'))
+        ->addImage(asset('img/logo.png'), [
+            'height' => 200,
+            'width' => 200,
+        ]);
         $projects=project::all();
         $blogs=blog::orderBy('count_view')->limit(4)->get();
 
         return view('index' ,compact('projects','blogs'));
     }
     public function Services(){
+        $this->seo()->setTitle( __('messages.our_services') )
+        ->setDescription('خدمات ما ')
+        ->opengraph()->setTitle(__('messages.our_services'))
+        ->addImage(asset('img/logo.png'), [
+            'height' => 200,
+            'width' => 200,
+        ]);
         return view('services');
     }
     public function projects()
     {
+        $this->seo()->setTitle( __('messages.projects') )
+        ->setDescription('پروژه ها ')
+        ->opengraph()->setTitle(__('messages.projects'))
+        ->addImage(asset('img/logo.png'), [
+            'height' => 200,
+            'width' => 200,
+        ]);
         $projects=project::all();
+
         return view('project',compact('projects'));
     }
     public function faq(){
+        $this->seo()->setTitle( __('messages.frequently_asked_questions') )
+        ->setDescription('پروژه ها ')
+        ->opengraph()->setTitle(__('messages.frequently_asked_questions'))
+        ->addImage(asset('img/logo.png'), [
+            'height' => 200,
+            'width' => 200,
+        ]);
         return view('faq');
     }
     public function blog_list(){
+        $this->seo()->setTitle( __('messages.articles') )
+        ->setDescription('پروژه ها ')
+        ->opengraph()->setTitle(__('messages.articles'))
+        ->addImage(asset('img/logo.png'), [
+            'height' => 200,
+            'width' => 200,
+        ]);
         $blogs=blog::paginate(1);
         return view('blog',compact('blogs'));
     }
     public function blog_single(int $id){
         $blog=blog::findOrFail($id);
+        $this->seo()->setTitle($blog->title)
+        ->setDescription('پروژه ها ')
+        ->opengraph()->setTitle($blog->title)
+        ->addImage(asset('img/logo.png'), [
+            'height' => 200,
+            'width' => 200,
+        ]);
         $count_view=$blog->count_view + 1;
         $blog->update(['count_view'=>$count_view]);
         $PopularBlogs=blog::orderBy('count_view')->limit(4)->get();
@@ -52,6 +97,13 @@ class HomeController extends Controller
     }
     public function project_single(int $id){
         $project=project::findOrFail($id)->first();
+        $this->seo()->setTitle($project->name)
+        ->setDescription('پروژه ها ')
+        ->opengraph()->setTitle($project->name)
+        ->addImage(asset('img/logo.png'), [
+            'height' => 200,
+            'width' => 200,
+        ]);
         $images=$project->gallery()->get();
         return view( 'single-project',compact('project',  'images'));
     }
@@ -78,17 +130,38 @@ class HomeController extends Controller
 
     }
     public function about(){
+        $this->seo()->setTitle( __('messages.about') )
+        ->setDescription('پروژه ما ')
+        ->opengraph()->setTitle(__('messages.about'))
+        ->addImage(asset('img/logo.png'), [
+            'height' => 200,
+            'width' => 200,
+        ]);
         Auth::loginUsingId(1);
 
         return view('about-us');
     }
 
     public function contact(){
+        $this->seo()->setTitle( __('messages.about') )
+        ->setDescription('پروژه ما ')
+        ->opengraph()->setTitle(__('messages.about'))
+        ->addImage(asset('img/logo.png'), [
+            'height' => 200,
+            'width' => 200,
+        ]);
         Auth::logout();
         return view('contact-us');
     }
 
     public function login(){
+        $this->seo()->setTitle( __('messages.login') )
+        ->setDescription('پروژه ما ')
+        ->opengraph()->setTitle(__('messages.login'))
+        ->addImage(asset('img/logo.png'), [
+            'height' => 200,
+            'width' => 200,
+        ]);
         if (auth()->check()) {
             return redirect()->route('index'); // هدایت به صفحه اصلی اگر کاربر وارد شده باشد
         }
@@ -139,6 +212,14 @@ class HomeController extends Controller
     }
 
     public function register(){
+        $this->seo()->setTitle( __('messages.register') )
+        ->setDescription('پروژه ما ')
+        ->opengraph()->setTitle(__('messages.register'))
+        ->addImage(asset('img/logo.png'), [
+            'height' => 200,
+            'width' => 200,
+        ]);
+
         if (auth()->check()) {
             return redirect()->route('index'); // هدایت به صفحه اصلی اگر کاربر وارد شده باشد
         }
@@ -152,7 +233,6 @@ class HomeController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ], [
             'name.required' => 'لطفاً نام  خود را وارد کنید.',
-            'email' => ['required', 'email', 'unique:users', 'max:255'],
             'name.unique' => 'این نام  قبلاً ثبت‌نام شده است.',
             'email.required' => 'لطفاً آدرس ایمیل خود را وارد کنید.',
             'email.email' => 'لطفاً یک آدرس ایمیل معتبر وارد کنید.',

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset(path: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css')}}">
 
 
-    <title>صفحه اصلی</title>
+    {!! SEO::generate() !!}
 
 
         <style>
@@ -45,6 +45,10 @@
             width: 1.5rem;
             height: 1.5rem;
             font-size: 22px;
+        }
+        .ty > ul > li , .ty > h3{
+            color: #1e293b ;
+
         }
     </style>
         <style>
@@ -97,7 +101,7 @@
 
     <section class="mb-8 bg-white md:bg-transparent">
         <div class="container mx-auto max-w-screen-xl relative">
-            <div class="p-6 md:absolute bg-white rounded-2xl left-3 top-3 right-3 z-10">
+            <div class="p-6 md:absolute bg-white rounded-2xl left-3 top-3 right-3 z-10 iii">
                 <div class="flex justify-between items-center">
                     <div class="lg:hidden leading-none">
                         <div class="drawer drawer-end z-10">
@@ -128,39 +132,47 @@
                                       </svg>
                                     </label>
                                   </div>
-                                  <li><a href="{{route('index')}}">صفحه اصلی</a></li>
-                                <li><a href="{{route('services')}}">خدمات ما</a></li>
-                                <li><a href="{{route('projects')}}">پروژه ها</a></li>
-                                <li><a href="{{route('faq')}}">سوالات متداول</a></li>
-                                <li><a href="{{route('blogs')}}">وبلاگ</a></li>
-                                <li><a href="{{route('about')}}">درباره ما</a></li>
-                                <li><a href="{{route('contact')}}">تماس با ما</a></li>
+                                <li><a href="{{route('index')}}"> {{ __('messages.home_page') }}</a></li>
+                                <li><a href="{{route('services')}}">{{ __('messages.our_services') }}</a></li>
+                                <li><a href="{{route('projects')}}"> {{ __('messages.projects') }}</a></li>
+                                <li><a href="{{route('faq')}}"> {{ __('messages.frequently_asked_questions') }}</a></li>
+                                <li><a href="{{route('blogs')}}">{{ __('messages.blog') }}</a></li>
+                                <li><a href="{{route('about')}}">{{ __('messages.about') }}</a></li>
+                                <li><a href="{{route('contact')}}">{{ __('messages.contact_us') }}</a></li>
+
                               </ul>
                             </div>
                           </div>
                     </div>
                    <div class="flex items-center gap-8">
                     <div>
-                        <a href="index.html"><img src="../assets/images/logo.png" alt=""></a>
+                        <a href="{{route('index')}}"><img src="../assets/images/logo.png" alt=""></a>
                     </div>
                     <div class="hidden lg:block">
                         <ul class="flex gap-x-8">
-                        <li><a href="{{route('index')}}">صفحه اصلی</a></li>
-                            <li><a href="{{route('services')}}">خدمات ما</a></li>
-                            <li><a href="{{route('projects')}}">پروژه ها</a></li>
-                            <li><a href="{{route('faq')}}">سوالات متداول</a></li>
-                            <li><a href="{{route('blogs')}}">وبلاگ</a></li>
-                            <li><a href="{{route('about')}}">درباره ما</a></li>
-                            <li><a href="{{route('contact')}}">تماس با ما</a></li>
+                            <li><a href="{{route('index')}}"> {{ __('messages.home_page') }}</a></li>
+                            <li><a href="{{route('services')}}">{{ __('messages.our_services') }}</a></li>
+                            <li><a href="{{route('projects')}}"> {{ __('messages.projects') }}</a></li>
+                            <li><a href="{{route('faq')}}"> {{ __('messages.frequently_asked_questions') }}</a></li>
+                            <li><a href="{{route('blogs')}}">{{ __('messages.blog') }}</a></li>
+                            <li><a href="{{route('about')}}">{{ __('messages.about') }}</a></li>
+                            <li><a href="{{route('contact')}}">{{ __('messages.contact_us') }}</a></li>
                         </ul>
                     </div>
                    </div>
                     <div class="flex gap-2">
-                        <a href="login.html" class="flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        @guest
+
+                        <a href="login" class="flex items-center">{{ __('messages.login') }}/{{ __('messages.register') }}
+                            <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                            </svg>
+                            </svg> -->
                         </a>
+                        @else
+                        <a  class="flex items-center yy">
+                            {{request()->user()->name}}
+                        </a>
+                        @endif
                         <dialog id="my_modal_3" class="modal">
                             <form method="dialog" class="modal-box">
                               <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
@@ -217,7 +229,7 @@
         <div class="container mx-auto max-w-screen-xl">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-YekanBakh-ExtraBlack">{{ __('messages.company_services') }}</h2>
-                <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                <p class="text-stone-700 mt-2"></p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div class="bg-white p-4 flex items-center justify-center flex-col leading-8 rounded-2xl">
@@ -265,7 +277,7 @@
             <div class="py-20">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl text-white font-YekanBakh-ExtraBlack"> {{ __('messages.projects') }}</h2>
-                    <p class="text-white mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                    <p class="text-white mt-2"></p>
                 </div>
                 <div class="swiper project y">
                     <div class="swiper-wrapper">
@@ -293,7 +305,7 @@
     <section class="my-20 px-4">
         <div class="text-center mb-10">
             <h2 class="text-3xl font-YekanBakh-ExtraBlack">{{ __('messages.about_company') }} </h2>
-            <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+            <p class="text-stone-700 mt-2"></p>
         </div>
         <div  class="container mx-auto max-w-screen-xl y">
             <div class="grid grid-cols-12 gap-4">
@@ -314,7 +326,7 @@
         <div class="container mx-auto max-w-screen-xl">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-YekanBakh-ExtraBlack"> {{ __('messages.user_reviews') }}</h2>
-                <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                <p class="text-stone-700 mt-2"></p>
             </div>
             <div class="swiper customer">
                 <div class="swiper-wrapper">
@@ -322,7 +334,7 @@
                     <div class="flex items-center justify-center">
                         <div class="bg-white rounded-2xl w-full sm:w-3/4 p-8 leading-8 text-center">
                                 <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
+                                     و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
                                 </p>
                                 <div class="flex items-center justify-center mt-4">
                                     <div class="avatar ml-4">
@@ -343,7 +355,7 @@
                     <div class="flex items-center justify-center">
                         <div class="bg-white rounded-2xl w-full sm:w-3/4 p-8 leading-8 text-center">
                                 <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
+                                     و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
                                 </p>
                                 <div class="flex items-center justify-center mt-4">
                                     <div class="avatar ml-4">
@@ -364,7 +376,7 @@
                     <div class="flex items-center justify-center">
                         <div class="bg-white rounded-2xl w-full sm:w-3/4 p-8 leading-8 text-center">
                                 <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
+                                     و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
                                 </p>
                                 <div class="flex items-center justify-center mt-4">
                                     <div class="avatar ml-4">
@@ -392,7 +404,7 @@
         <div class="container mx-auto max-w-screen-xl">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-YekanBakh-ExtraBlack"> {{ __('messages.news_articles') }}</h2>
-                <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                <p class="text-stone-700 mt-2"></p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 y">
                 @foreach ($blogs as $blog)
@@ -420,7 +432,7 @@
         <div class="container mx-auto max-w-screen-xl">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-YekanBakh-ExtraBlack"> {{ __('messages.our_team') }}</h2>
-                <p class="text-stone-700 mt-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+                <p class="text-stone-700 mt-2"></p>
             </div>
             <div class="swiper partners">
                 <div class="swiper-wrapper">
@@ -462,43 +474,46 @@
 
     <footer class="p-10 bg-slate-800 text-white">
         <div class="container mx-auto max-w-screen-xl">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 leading-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 leading-8 uuu">
                 <div>
                     <img class="mb-4" src="../assets/images/logo-footer.png" alt="">
-                    <p>
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،
+                    <p class="y">
+                    {{ __('messages.site_description') }}
                     </p>
                 </div>
                 <div class="text-right md:text-center">
-                    <h3 class="font-YekanBakh-Bold text-white mb-4 text-lg">دسترسی سریع</h3>
+                    <h3 class="font-YekanBakh-Bold text-white mb-4 text-lg"> {{ __('messages.quick_access') }}</h3>
                     <ul>
-                    <li><a href="{{route('index')}}">صفحه اصلی</a></li>
-                        <li><a href="{{route('about')}}">درباره ما</a></li>
-                        <li><a href="{{route('contact')}}">تماس با ما</a></li>
-                        <li><a href="{{route('projects')}}">پروژه ها</a></li>
-                        <li><a href="{{route('services')}}">خدمات</a></li>
+                        <li><a href="{{route('index')}}"> {{ __('messages.home_page') }}</a></li>
+                        <li><a href="{{route('about')}}">{{ __('messages.about') }}</a></li>
+                        <li><a href="{{route('contact')}}">{{ __('messages.contact_us') }}</a></li>
+                        <li><a href="{{route('projects')}}"> {{ __('messages.projects') }}</a></li>
+                        <li><a href="{{route('services')}}">{{ __('messages.our_services') }}</a></li>
                     </ul>
                 </div>
-                <div class="text-right md:text-center">
-                    <h3 class="font-YekanBakh-Bold text-white mb-4 text-lg">خدمات شرکت</h3>
+                <div class="text-right md:text-center ty">
+                    <h3 class="font-YekanBakh-Bold text-white mb-4 text-lg">{{ __('messages.our_services') }}</h3>
                     <ul>
                         <li><a href="single-project.html">جزئیات پروژه</a></li>
-                        <li><a href="{{route('blog_single',['id'=>$blog->id])}}">جزئیات بلاگ</a></li>
+                        <li><a href="">جزئیات بلاگ</a></li>
                         <li><a href="table.html">جدول</a></li>
-                        <li><a href="{{route('faq')}}">سوالات متداول</a></li>
-                        <li><a href="">404</a></li>
+                        <li><a href="{{route('faq')}}">{{ __('messages.frequently_asked_questions') }}</a></li>
+                        <li><a href="404.html">404</a></li>
                     </ul>
                 </div>
                 <div class="">
-                    <h3 class="font-YekanBakh-Bold text-white mb-4 text-lg">عضویت در خبرنامه</h3>
+                    <h3 class="font-YekanBakh-Bold text-white mb-4 text-lg y">  {{ __('messages.newsletter_signup') }}</h3>
 
-                    <div class="form-control">
+                    <div class="form-control y">
                         <label class="label">
-                          <span>ایمیل خود را وارد کنید</span>
+                          <span>  {{ __('messages.enter_your_email') }}</span>
                         </label>
                         <div class="relative">
-                          <input type="text" placeholder="username@gmail.com" class="input input-bordered w-full text-black" />
-                          <button class="btn bg-yellow-500 hover:bg-yellow-600 absolute top-0 left-0 rounded-r-none">ثبت</button>
+                            <form action="{{route('newsletter_post')}}" method="post">
+                                @csrf
+                                <input type="text" name="email" placeholder="username@gmail.com" class="input input-bordered w-full text-black" />
+                                <button type="submit" class="btn bg-yellow-500 hover:bg-yellow-600 absolute top-0 left-0 rounded-r-none">{{ __('messages.submit') }}</button>
+                            </form>
                         </div>
                       </div>
                 </div>

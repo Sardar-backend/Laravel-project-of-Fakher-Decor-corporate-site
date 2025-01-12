@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('../node_modules/swiper/swiper-bundle.min.css')}}">
     <link rel="stylesheet" href="{{ asset('build/style.css')}}">
-    <title>{{ __('messages.register') }}</title>
-
+    <!-- <title>{{ __('messages.register') }}</title> -->
+    {!! SEO::generate() !!}
 </head>
 <body class="font-YekanBakh-Regular text-sm bg-slate-50">
 

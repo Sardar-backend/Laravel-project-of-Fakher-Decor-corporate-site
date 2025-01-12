@@ -140,11 +140,11 @@
     <div class="bg-[url('/assets/images/ber.jpg')] bg-no-repeat h-40 md:h-64 relative">
         <div class="flex justify-center">
             <div class="text-sm absolute top-1/4 md:top-1/2">
-                <h2 class="text-3xl font-YekanBakh-ExtraBlack my-4">جزئیات وبلاگ</h2>
+                <h2 class="text-3xl font-YekanBakh-ExtraBlack my-4">{{$blog->title}}</h2>
                 <div class="breadcrumbs flex justify-center">
                     <ul class="">
                       <li><a>{{ __('messages.Home') }}</a></li>
-                      <li>جزئیات وبلاگ</li>
+                      <li> {{$blog->title}}</li>
                     </ul>
                 </div>
               </div>
@@ -159,7 +159,7 @@
                 <div class="col-span-12 md:col-span-3 order-2 md:order-1">
                     <div class="bg-white p-4 rounded-2xl mb-4 leading-8">
                         <div class="border-r-4 bg-slate-100 border-yellow-400 mb-4 rounded-2xl p-4">
-                            <h3 class="font-YekanBakh-Bold text-slate-800 text-base">پربازدیدترین ها</h3>
+                            <h3 class="font-YekanBakh-Bold text-slate-800 text-base">{{ __('messages.most_visited') }}</h3>
                         </div>
                         <div>
                             @foreach ($PopularBlogs as $item)
@@ -167,11 +167,11 @@
                             <div class="flex items-center my-4">
                                 <div class="avatar">
                                     <div class="w-16 rounded-full">
-                                      <img src="../assets/images/blog-2.jpg" />
+                                      <img src="/storage/{{$item->image}}" />
                                     </div>
                                   </div>
                                   <div class="mr-2">
-                                    <h3 class="font-YekanBakh-Bold text-slate-800 text-sm">جذاب ترین ایده دکوراسیون</h3>
+                                    <h3 class="font-YekanBakh-Bold text-slate-800 text-sm">{{$item->title}}</h3>
                                     <p></p>
                                   </div>
                             </div>
@@ -182,7 +182,7 @@
                     </div>
                     <div class="bg-white p-4 rounded-2xl mb-4 leading-8">
                         <div class="border-r-4 bg-slate-100 border-yellow-400 mb-4 rounded-2xl p-4">
-                            <h3 class="font-YekanBakh-Bold text-slate-800 text-base">دسته بندی</h3>
+                            <h3 class="font-YekanBakh-Bold text-slate-800 text-base"> {{ __('messages.categories') }}</h3>
                         </div>
                         <ul class="menu">
                             <!-- <li><a>دسته بندی اول</a></li> -->
@@ -303,9 +303,9 @@
 
                             <h3 class="font-YekanBakh-Bold text-slate-800 text-base">نظرات</h3>
                             @guest
-                                <p>برای ثبت نظر ابتدا وارد شوید</p>
+                                <p> {{ __('messages.leave_comment_login_first') }}</p>
                             @else
-                            <p>شما با نام {{Auth::user()->name}} وارد شده اید!!</p>
+
                             <form action="{{route('craete_comment')}}" method="post">
                                 @csrf
                                 <input type="hidden" class="parent_id"  name="parent_id" value="0"  id="">

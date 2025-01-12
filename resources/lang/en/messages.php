@@ -117,7 +117,9 @@ return [
 'cancel' => 'Cancel',
 'about_project' => 'About the project',
 'project_details' => 'Project details',
-
+'loogin_with' => 'Login with',
+'most_visited' => 'Most Visited',
+'leave_comment_login_first' => 'Please log in first to leave a comment',
 
 
 

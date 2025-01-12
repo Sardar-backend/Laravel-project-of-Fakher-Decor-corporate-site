@@ -13,20 +13,20 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
   <!-- IonIcons -->
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <!-- <link rel="stylesheet" href="/dist/css/adminlte.min.css"> -->
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link rel="stylesheet" href={{asset('css/all.min.css')}}>
-  @vite('resources/sass/admin.scss')
+
 
   <!-- bootstrap rtl -->
-  <!-- <link rel="stylesheet" href="/dist/css/bootstrap-rtl.min.css"> -->
+  <link rel="stylesheet" href="/dist/css/bootstrap-rtl.min.css">
   <!-- template rtl version -->
-  <!-- <link rel="stylesheet" href="/dist/css/custom-style.css"> -->
+  <link rel="stylesheet" href="/dist/css/custom-style.css">
     <style>
         /* #imageadmin{
             width: 50%;
